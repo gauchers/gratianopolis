@@ -52,10 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         compteur.textContent = filtresActifs
-            ? `${count} résultats trouvés`
+            ? `${count} résultat(s) trouvé(s)`
             : "";
 
         messageVide.style.display =
             filtresActifs && count === 0 ? "block" : "none";
     }
 });
+
