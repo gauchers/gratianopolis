@@ -111,17 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function testAnaCat(cat, texte) {
     const selects = [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)];
-    const ops = [...document.querySelectorAll(`.op`)];
+    const ops = [...document.querySelectorAll(`.op[data-cat="${cat}"]`)];
 
     const values = selects.map(s => s.value);
 
-    // Aucun filtre dans cette catégorie
+    // Aucun filtre actif → OK
     if (values.every(v => !v)) return true;
 
     const anaSet = (texte.dataset[cat] || "").split(" ");
 
     let result = null;
-    let opPos = 0;
 
     for (let i = 0; i < values.length; i++) {
         const value = values[i];
@@ -134,8 +133,7 @@ function testAnaCat(cat, texte) {
             continue;
         }
 
-        const op = ops[opPos]?.value || "or";
-        opPos++;
+        const op = ops[i - 1]?.value || "or";
 
         if (op === "and") result = result && present;
         if (op === "or") result = result || present;
@@ -145,7 +143,9 @@ function testAnaCat(cat, texte) {
     return result;
 }
 
+
 });
+
 
 
 
