@@ -56,3 +56,38 @@ h1 {
 .texte p {
     text-align: justify;
 }
+
+/* Alignement général des lignes de filtres */
+.ligne-filtre {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    margin: 12px 0;
+    column-gap: 15px;
+}
+
+/* Libellés Conjugaison / Morphologie / Syntaxe */
+.label-filtre {
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Conteneur des menus */
+.filtres-ana {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Uniformisation de TOUS les select */
+select {
+    font-size: 1rem;
+    padding: 3px 6px;
+}
+
+/* Boutons opérateurs (OU / ET / SANS) */
+select.op {
+    font-weight: bold;
+}
