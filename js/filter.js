@@ -1,3 +1,31 @@
+const ANA_LABELS = {
+
+    conjugaison: {
+        "indicatif_présent": "Indicatif présent",
+        "indicatif_imparfait": "Indicatif imparfait",
+        "indicatif_parfait": "Indicatif parfait",
+        "infinitif_présent": "Infinitif présent",
+        "infinitif_parfait": "Infinitif parfait",
+        "infinitif_parfait_passif": "Infinitif parfait passif",
+        "participe_parfait": "Participe parfait",
+        "participe_futur": "Participe futur",
+        "participe_substantivé": "Participe substantivé",
+        "déponent": "Déponent"
+    },
+
+    morphologie: {
+        "is": "is, ea, id",
+        "comparatif": "Comparatif"
+    },
+
+    syntaxe: {
+        "relative": "Proposition relative",
+        "infinitive": "Proposition infinitive",
+        "ablatif_absolu": "Ablatif absolu",
+        "omission_esse": "Omission de esse"
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const compteur = document.getElementById("compteur");
@@ -60,5 +88,6 @@ compteur.textContent = filtresActifs
             filtresActifs && count === 0 ? "block" : "none";
     }
 });
+
 
 
