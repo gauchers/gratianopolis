@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Gratianopolis</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
 <h1>Corpus Gratianopolis</h1>
 
-<!-- COMPTEUR -->
-<p id="compteur">0 résultats trouvés</p>
-
-<!-- BARRE DE TRI -->
 <div id="filtres">
     <select id="langue">
         <option value="">Langue</option>
@@ -35,16 +22,15 @@
     </select>
 </div>
 
+<!-- compteur SOUS les filtres -->
+<p id="compteur"></p>
+
+<!-- message si aucun texte -->
+<p id="message-vide" style="display:none;">Aucun texte correspondant</p>
+
 <hr>
 
-<!-- CONTENEUR DES TEXTES -->
 <div id="corpus">
-    <!-- ici tu inclus tous les fichiers -->
-    <!-- exemple -->
     <div data-src="textes/texte_001.html"></div>
-    <div data-src="textes/texte_002.html"></div>
+    <!-- autres fichiers -->
 </div>
-
-<script src="js/filter.js"></script>
-</body>
-</html>
