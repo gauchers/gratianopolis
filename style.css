@@ -1,0 +1,14 @@
+#filtres {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.texte {
+    margin-bottom: 2rem;
+}
+
+.notice {
+    font-weight: bold;
+}
