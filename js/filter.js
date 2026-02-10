@@ -1,20 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const corpus = document.getElementById("corpus");
     const compteur = document.getElementById("compteur");
+    const messageVide = document.getElementById("message-vide");
+    const corpus = document.getElementById("corpus");
 
-    // Charger tous les textes
+    let textes = [];
+
     document.querySelectorAll("[data-src]").forEach(div => {
         fetch(div.dataset.src)
-            .then(r => r.text())
+            .then(r => {
+                if (!r.ok) return null;
+                return r.text();
+            })
             .then(html => {
-                div.innerHTML = html;
-                appliquerFiltres();
-            });
+                if (!html) return;
+
+                const temp = document.createElement("div");
+                temp.innerHTML = html;
+
+                const texte = temp.querySelector(".texte");
+                if (texte) {
+                    corpus.appendChild(texte);
+                    textes.push(texte);
+                    texte.style.display = "none"; // caché par défaut
+                }
+            })
+            .catch(() => {});
     });
 
-    // Filtres
-    document.querySelectorAll("#langue, #type, #niveau")
+    document.querySelectorAll("select")
         .forEach(select => select.addEventListener("change", appliquerFiltres));
 
     function appliquerFiltres() {
@@ -22,11 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const type = document.getElementById("type").value;
         const niveau = document.getElementById("niveau").value;
 
+        let filtresActifs = langue || type || niveau;
         let count = 0;
 
-        document.querySelectorAll(".texte").forEach(texte => {
+        textes.forEach(texte => {
             let visible = true;
 
+            if (!filtresActifs) visible = false;
             if (langue && texte.dataset.langue !== langue) visible = false;
             if (type && texte.dataset.type !== type) visible = false;
             if (niveau && texte.dataset.niveau !== niveau) visible = false;
@@ -35,8 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (visible) count++;
         });
 
-        compteur.textContent = `${count} résultats trouvés`;
+        compteur.textContent = filtresActifs
+            ? `${count} résultats trouvés`
+            : "";
+
+        messageVide.style.display =
+            filtresActifs && count === 0 ? "block" : "none";
     }
-
 });
-
