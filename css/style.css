@@ -1,15 +1,58 @@
+/* Marges générales */
+body {
+    margin: 60px;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: serif;
+}
+
+/* Titre principal */
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+}
+
+/* Barre de filtres */
 #filtres {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
+    gap: 1.5rem;
+    margin-bottom: 20px;
 }
 
-.texte {
-    margin-bottom: 2rem;
+/* Menus déroulants */
+#filtres select {
+    font-size: 1.1em;
+    padding: 8px 12px;
 }
 
-.notice {
+/* Compteur */
+#compteur {
+    text-align: left;
+    margin-bottom: 40px;
     font-weight: bold;
 }
 
+/* Message "aucun texte" */
+#message-vide {
+    font-style: italic;
+    margin-top: 30px;
+}
+
+/* Bloc texte */
+.texte {
+    margin-bottom: 50px;
+}
+
+/* Ligne notice */
+.notice {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraphes */
+.texte p {
+    text-align: justify;
+}
