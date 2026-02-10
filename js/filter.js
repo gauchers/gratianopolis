@@ -51,12 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (visible) count++;
         });
 
-        compteur.textContent = filtresActifs
-            ? `${count} résultat(s) trouvé(s)`
-            : "";
+compteur.textContent = filtresActifs
+    ? `${count} ${count > 1 ? "résultats trouvés" : "résultat trouvé"}`
+    : "";
+
 
         messageVide.style.display =
             filtresActifs && count === 0 ? "block" : "none";
     }
 });
+
 
