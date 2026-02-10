@@ -76,7 +76,7 @@ h1 {
     font-size: 1em;
     margin-right: 10px;
     display: inline-block;
-    min-width: 260px;
+    min-width: 50px;
     vertical-align: middle;
 }
 
@@ -85,4 +85,5 @@ select {
     vertical-align: middle;
     margin-right: 6px;
 }
+
 
