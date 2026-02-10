@@ -112,18 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
 function testAnaCat(cat, texte) {
     const selects = [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)];
     const ops = [...document.querySelectorAll(`.op[data-cat="${cat}"]`)];
-
-    const anaSet = (texte.dataset[cat] || "").split(" ");
+    
+    // On récupère les tags du texte, s'il n'y en a pas, on travaille sur un tableau vide
+    const anaSet = (texte.dataset[cat] || "").split(/\s+/).filter(s => s.length > 0);
 
     let result = null;
 
     for (let i = 0; i < selects.length; i++) {
         const value = selects[i].value;
-        if (!value) continue;
+        if (!value) continue; // On ignore les selects vides
 
         const present = anaSet.includes(value);
 
         if (result === null) {
+            // Premier élément sélectionné : si l'opérateur précédent (cas rare) 
+            // ou le contexte est "SANS", on inverse
             result = present;
             continue;
         }
@@ -131,7 +134,9 @@ function testAnaCat(cat, texte) {
         const op = ops[i - 1]?.value || "or";
 
         if (op === "without") {
-            if (present) return false;
+            // Logique du SANS : Le résultat précédent reste vrai 
+            // SEULEMENT SI l'élément actuel n'est PAS présent
+            result = result && !present;
         } else if (op === "and") {
             result = result && present;
         } else {
@@ -139,11 +144,13 @@ function testAnaCat(cat, texte) {
         }
     }
 
+    // Si aucun select n'est rempli pour cette catégorie, on renvoie true (ne bloque pas le filtre)
     return result === null ? true : result;
 }
 
 
 });
+
 
 
 
