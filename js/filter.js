@@ -109,29 +109,40 @@ document.addEventListener("DOMContentLoaded", () => {
             .some(s => s.value);
     }
 
-    function testAnaCat(cat, texte) {
-        const container = document.querySelector(`.filtres-${cat}`);
-        if (!container) return true;
+function testAnaCat(cat, texte) {
+    const container = document.querySelector(`.filtres-${cat}`);
+    if (!container) return true;
 
-        const selects = [...container.querySelectorAll(".ana")];
-        const ops = [...container.querySelectorAll(".op")];
+    const selects = [...container.querySelectorAll(".ana")];
+    const ops = [...container.querySelectorAll(".op")];
 
-        const values = selects.map(s => s.value).filter(Boolean);
-        if (values.length === 0) return true;
+    const values = selects.map(s => s.value);
+    if (values.every(v => !v)) return true;
 
-        const anaSet = (texte.dataset[cat] || "").split(" ");
+    const anaSet = (texte.dataset[cat] || "").split(" ");
 
-        let result = anaSet.includes(values[0]);
+    let result = null;
 
-        for (let i = 1; i < values.length; i++) {
-            const present = anaSet.includes(values[i]);
-            const op = ops[i - 1].value;
+    for (let i = 0; i < values.length; i++) {
+        const value = values[i];
+        if (!value) continue;
 
-            if (op === "and") result = result && present;
-            if (op === "or") result = result || present;
-            if (op === "without") result = result && !present;
+        const present = anaSet.includes(value);
+
+        if (i === 0) {
+            result = present;
+            continue;
         }
 
-        return result;
+        const op = ops[i - 1].value;
+
+        if (op === "and") result = result && present;
+        if (op === "or") result = result || present;
+        if (op === "without" && present) return false;
     }
+
+    return result === null ? true : result;
+}
+
 });
+
