@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gratianopolis</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Corpus Gratianopolis</h1>
+
+<!-- COMPTEUR -->
+<p id="compteur">0 résultats trouvés</p>
+
+<!-- BARRE DE TRI -->
+<div id="filtres">
+    <select id="langue">
+        <option value="">Langue</option>
+        <option value="la">Latin</option>
+        <option value="grc">Grec</option>
+    </select>
+
+    <select id="type">
+        <option value="">Type de texte</option>
+        <option value="prose">Prose</option>
+        <option value="poesie">Poésie</option>
+    </select>
+
+    <select id="niveau">
+        <option value="">Difficulté</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
+
+<hr>
+
+<!-- CONTENEUR DES TEXTES -->
+<div id="corpus">
+    <!-- ici tu inclus tous les fichiers -->
+    <!-- exemple -->
+    <div data-src="textes/texte_001.html"></div>
+    <div data-src="textes/texte_002.html"></div>
+</div>
+
+<script src="js/filter.js"></script>
+</body>
+</html>
