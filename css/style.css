@@ -1,12 +1,19 @@
-/* Marges générales */
+/* =========================
+   BASE GÉNÉRALE
+   ========================= */
+
 body {
     margin: 60px;
     font-size: 18px;
     line-height: 1.6;
     font-family: serif;
+    color: #111;
 }
 
-/* Titre principal */
+/* =========================
+   TITRE
+   ========================= */
+
 h1 {
     text-align: center;
     margin-top: 40px;
@@ -14,76 +21,109 @@ h1 {
     font-size: 2.5em;
 }
 
-/* Barre de filtres */
-#filtres {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 20px;
+/* =========================
+   FILTRES GÉNÉRAUX
+   ========================= */
+
+   #filtres {
+       display: flex;
+       gap: 12px;
+       margin: 0 auto 25px auto;   /* ← centrage */
+       width: fit-content;        /* ← largeur ajustée au contenu */
+   }
+
+
+/* =========================
+   FILTRES LINGUISTIQUES
+   ========================= */
+   .ligne-filtre {
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       margin: 0 auto 12px auto;   /* ← centrage */
+       width: fit-content;        /* ← clé du centrage */
+   }
+
+
+/* Titre de chaque ligne */
+.titre-filtre {
+    min-width: 170px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+    white-space: nowrap;
 }
 
-/* Menus déroulants */
-#filtres select {
-    font-size: 1.1em;
-    padding: 8px 12px;
+/* =========================
+   SELECTS (TOUS)
+   ========================= */
+
+select {
+    font-size: 1em;
+    font-family: inherit;
+    padding: 6px 8px;
+    border: 1px solid #999;
+    background-color: #fff;
+    border-radius: 4px;
 }
 
-/* Compteur */
+/* Selects de valeurs linguistiques */
+select.ana {
+    min-width: 220px;
+}
+
+/* Selects opérateurs (OU / ET / SANS) */
+select.op {
+    min-width: 70px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Hover / focus léger */
+select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* =========================
+   COMPTEUR ET MESSAGES
+   ========================= */
+
 #compteur {
     text-align: left;
+    margin-top: 25px;
     margin-bottom: 40px;
     font-weight: bold;
 }
 
-/* Message "aucun texte" */
 #message-vide {
     font-style: italic;
     margin-top: 30px;
 }
 
-/* Bloc texte */
+/* =========================
+   CORPUS
+   ========================= */
+
 .texte {
     margin-bottom: 50px;
 }
 
-/* Ligne notice */
 .notice {
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Paragraphes */
 .texte p {
     text-align: justify;
 }
 
-/* Alignement général des lignes de filtres */
-.ligne-filtre {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    align-items: center;
-    margin: 12px 0;
-    column-gap: 15px;
+/* =========================
+   LIGNE DE SÉPARATION
+   ========================= */
+
+hr {
+    margin: 50px 0;
+    border: none;
+    border-top: 1px solid #ccc;
 }
-
-.ligne-filtre {
-    margin: 8px 0;
-    white-space: nowrap;
-}
-
-.titre-filtre {
-    font-weight: bold;
-    font-size: 1em;
-    margin-right: 10px;
-    display: inline-block;
-    min-width: 50px;
-    vertical-align: middle;
-}
-
-select {
-    font-size: 1em;
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-
