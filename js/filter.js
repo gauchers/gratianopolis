@@ -112,44 +112,42 @@ document.addEventListener("DOMContentLoaded", () => {
 function testAnaCat(cat, texte) {
     const selects = [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)];
     const ops = [...document.querySelectorAll(`.op[data-cat="${cat}"]`)];
-    
-    // On récupère les tags du texte, s'il n'y en a pas, on travaille sur un tableau vide
     const anaSet = (texte.dataset[cat] || "").split(/\s+/).filter(s => s.length > 0);
 
     let result = null;
 
     for (let i = 0; i < selects.length; i++) {
         const value = selects[i].value;
-        if (!value) continue; // On ignore les selects vides
+        if (!value) continue;
 
         const present = anaSet.includes(value);
+        
+        // On récupère l'opérateur situé AVANT ce select (si i > 0)
+        const op = i > 0 ? ops[i - 1].value : "or";
 
         if (result === null) {
-            // Premier élément sélectionné : si l'opérateur précédent (cas rare) 
-            // ou le contexte est "SANS", on inverse
-            result = present;
-            continue;
-        }
-
-        const op = ops[i - 1]?.value || "or";
-
-        if (op === "without") {
-            // Logique du SANS : Le résultat précédent reste vrai 
-            // SEULEMENT SI l'élément actuel n'est PAS présent
-            result = result && !present;
-        } else if (op === "and") {
-            result = result && present;
+            // C'est le premier critère rempli de la ligne
+            // Si l'utilisateur a mis "SANS" devant un champ alors que le précédent est vide, 
+            // on considère qu'il veut (Rien) SANS (Valeur), donc il faut inverser.
+            result = (op === "without") ? !present : present;
         } else {
-            result = result || present;
+            // Application des opérateurs classiques
+            if (op === "without") {
+                result = result && !present;
+            } else if (op === "and") {
+                result = result && present;
+            } else { // "or"
+                result = result || present;
+            }
         }
     }
 
-    // Si aucun select n'est rempli pour cette catégorie, on renvoie true (ne bloque pas le filtre)
     return result === null ? true : result;
 }
 
 
 });
+
 
 
 
