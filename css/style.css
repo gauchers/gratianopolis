@@ -66,28 +66,23 @@ h1 {
     column-gap: 15px;
 }
 
-/* Libellés Conjugaison / Morphologie / Syntaxe */
-.label-filtre {
-    font-weight: bold;
-    font-size: 1rem;
-    text-align: right;
+.ligne-filtre {
+    margin: 8px 0;
     white-space: nowrap;
 }
 
-/* Conteneur des menus */
-.filtres-ana {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Uniformisation de TOUS les select */
-select {
-    font-size: 1rem;
-    padding: 3px 6px;
-}
-
-/* Boutons opérateurs (OU / ET / SANS) */
-select.op {
+.titre-filtre {
     font-weight: bold;
+    font-size: 1em;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 260px;
+    vertical-align: middle;
 }
+
+select {
+    font-size: 1em;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
