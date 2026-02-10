@@ -1,5 +1,4 @@
 const ANA_LABELS = {
-
     conjugaison: {
         "indicatif_présent": "Indicatif présent",
         "indicatif_imparfait": "Indicatif imparfait",
@@ -12,12 +11,10 @@ const ANA_LABELS = {
         "participe_substantivé": "Participe substantivé",
         "déponent": "Déponent"
     },
-
     morphologie: {
         "is": "is, ea, id",
         "comparatif": "Comparatif"
     },
-
     syntaxe: {
         "relative": "Proposition relative",
         "infinitive": "Proposition infinitive",
@@ -40,29 +37,33 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(r => r.ok ? r.text() : null)
             .then(html => {
                 if (!html) return;
+
                 const temp = document.createElement("div");
                 temp.innerHTML = html;
+
                 const texte = temp.querySelector(".texte");
-                if (texte) {
-                    texte.style.display = "none";
-                    corpus.appendChild(texte);
-                    textes.push(texte);
-                }
+                if (!texte) return;
+
+                texte.style.display = "none";
+                corpus.appendChild(texte);
+                textes.push(texte);
             });
     });
 
-    /* Génération automatique des menus ana */
+    /* Menus déroulants ana */
     document.querySelectorAll("select.ana").forEach(select => {
         const cat = select.dataset.cat;
         select.innerHTML = `<option value="">—</option>`;
-        Object.entries(ANA_LABELS[cat]).forEach(([v, l]) => {
+
+        Object.entries(ANA_LABELS[cat]).forEach(([value, label]) => {
             const opt = document.createElement("option");
-            opt.value = v;
-            opt.textContent = l;
+            opt.value = value;
+            opt.textContent = label;
             select.appendChild(opt);
         });
     });
 
+    /* Écouteurs */
     document.querySelectorAll("select")
         .forEach(s => s.addEventListener("change", appliquerFiltres));
 
@@ -71,7 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const type = document.getElementById("type").value;
         const niveau = document.getElementById("niveau").value;
 
-        let filtresActifs = langue || type || niveau;
+        let filtresActifs =
+            langue || type || niveau ||
+            hasAnaSelection("conjugaison") ||
+            hasAnaSelection("morphologie") ||
+            hasAnaSelection("syntaxe");
+
         let count = 0;
 
         textes.forEach(texte => {
@@ -98,14 +104,23 @@ document.addEventListener("DOMContentLoaded", () => {
             filtresActifs && count === 0 ? "block" : "none";
     }
 
-    function testAnaCat(cat, texte) {
-        const selects = [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)];
-        const ops = [...document.querySelectorAll(`.filtres-${cat} .op`)];
-        const values = selects.map(s => s.value).filter(Boolean);
+    function hasAnaSelection(cat) {
+        return [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)]
+            .some(s => s.value);
+    }
 
+    function testAnaCat(cat, texte) {
+        const container = document.querySelector(`.filtres-${cat}`);
+        if (!container) return true;
+
+        const selects = [...container.querySelectorAll(".ana")];
+        const ops = [...container.querySelectorAll(".op")];
+
+        const values = selects.map(s => s.value).filter(Boolean);
         if (values.length === 0) return true;
 
         const anaSet = (texte.dataset[cat] || "").split(" ");
+
         let result = anaSet.includes(values[0]);
 
         for (let i = 1; i < values.length; i++) {
