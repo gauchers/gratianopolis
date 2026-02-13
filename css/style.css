@@ -21,13 +21,6 @@ h1 {
     font-size: 2.5em;
 }
 
-h2 {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    font-size: 1.5em;
-}
-
 
 /* =========================
    FILTRES GÉNÉRAUX
@@ -159,4 +152,5 @@ hr {
   background: lightblue;
   color: black;
 }
+
 
