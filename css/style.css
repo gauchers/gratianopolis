@@ -3,11 +3,13 @@
    ========================= */
 
 body {
-    margin: 60px;
+    margin: 0;
+   font-family: "Georgia", serif;
     font-size: 18px;
     line-height: 1.6;
     font-family: serif;
-    color: #111;
+       background-color: #f5f5f5;
+    color: #222;
 }
 
 /* =========================
@@ -152,5 +154,6 @@ hr {
   background: lightblue;
   color: black;
 }
+
 
 
