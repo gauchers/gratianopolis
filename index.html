@@ -5,113 +5,25 @@
     <title>Gratianopolis</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<h1>Corpus Gratianopolitanum</h1>
+    <main class="container">
 
-<!-- Filtres généraux -->
-<div id="filtres">
-    <select id="langue">
-        <option value="">Langue</option>
-        <option value="la">Latin</option>
-        <option value="grc">Grec</option>
-    </select>
+        <h1>Corpus Gratianopolitanum</h1>
 
-    <select id="type">
-        <option value="">Type de texte</option>
-        <option value="prose">Prose</option>
-        <option value="poesie">Poésie</option>
-    </select>
+        <section class="presentation">
+            <p>
+                Blabla c'est la joie !
+            </p>
+        </section>
 
-    <select id="niveau">
-        <option value="">Difficulté</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-</div>
+        <div class="choix-langue">
+            <a href="html/base_grec.html" class="btn grec">Grec</a>
+            <a href="html/base_latin.html" class="btn latin">Latin</a>
+        </div>
 
-<!-- Filtres linguistiques -->
+    </main>
 
-<div class="ligne-filtre">
-    <label class="titre-filtre">Morphologie - Verbes</label>
-
-    <select class="ana" data-cat="conjugaison"></select>
-    <select class="op" data-cat="conjugaison">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
-    <select class="ana" data-cat="conjugaison"></select>
-    <select class="op" data-cat="conjugaison">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
-    <select class="ana" data-cat="conjugaison"></select>
-</div>
-
-<div class="ligne-filtre">
-    <label class="titre-filtre">Morphologie - Noms, pronoms, adjectifs</label>
-
-    <select class="ana" data-cat="morphologie"></select>
-    <select class="op" data-cat="morphologie">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
-    <select class="ana" data-cat="morphologie"></select>
-    <select class="op" data-cat="morphologie">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
-    <select class="ana" data-cat="morphologie"></select>
-</div>
-
-<div class="ligne-filtre">
-    <label class="titre-filtre">Syntaxe</label>
-
-    <select class="ana" data-cat="syntaxe"></select>
-    <select class="op" data-cat="syntaxe">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
-    <select class="ana" data-cat="syntaxe"></select>
-    <select class="op" data-cat="syntaxe">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
-    <select class="ana" data-cat="syntaxe"></select>
-</div>
-
-
-<!-- Compteur -->
-<p id="compteur"></p>
-
-<!-- Message si aucun résultat -->
-<p id="message-vide" style="display:none;">Aucun texte correspondant</p>
-
-<hr>
-
-<!-- Corpus -->
-<div id="corpus">
-    <div data-src="textes/texte_001.html"></div>
-    <!-- autres fichiers -->
-</div>
-
-<script src="js/filter.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
