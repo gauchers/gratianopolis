@@ -1,12 +1,10 @@
 name: Convert CSV to HTML
 
-# Déclenchement automatique à chaque push sur la branche main
 on:
   push:
     branches:
       - main
 
-# Permission nécessaire pour push depuis le workflow
 permissions:
   contents: write
 
@@ -15,32 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1️⃣ Récupérer le dépôt
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # 2️⃣ Installer Python
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
 
-    # 3️⃣ Installer les dépendances Python si besoin
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt || echo "Pas de requirements.txt"
 
-    # 4️⃣ Transformer CSV → TEI
     - name: CSV to TEI
       run: python py/csv_to_xml.py
 
-    # 5️⃣ Télécharger Saxon HE pour XSLT 2.0
     - name: Download Saxon HE
       run: |
         wget https://github.com/Saxonica/Saxon-HE/releases/download/12.3/saxon-he-12.3.jar -O saxon-he.jar
 
-    # 6️⃣ Transformer TEI → HTML et placer dans data/
     - name: TEI to HTML
       run: |
         mkdir -p data
@@ -48,7 +40,6 @@ jobs:
           java -jar saxon-he.jar -s:"$tei_file" -xsl:xsl/xml_to_html.xsl -o:"data/$(basename "${tei_file%.xml}.html")"
         done
 
-    # 7️⃣ Commit & push les fichiers HTML générés
     - name: Commit and push HTML files
       run: |
         git config user.email "action@github.com"
