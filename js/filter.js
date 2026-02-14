@@ -68,12 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(s => s.addEventListener("change", appliquerFiltres));
 
     function appliquerFiltres() {
-        const langue = document.getElementById("langue").value;
         const type = document.getElementById("type").value;
         const niveau = document.getElementById("niveau").value;
 
         let filtresActifs =
-            langue || type || niveau ||
+            type || niveau ||
             hasAnaSelection("conjugaison") ||
             hasAnaSelection("morphologie") ||
             hasAnaSelection("syntaxe");
@@ -84,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let visible = true;
 
             if (!filtresActifs) visible = false;
-            if (langue && texte.dataset.langue !== langue) visible = false;
             if (type && texte.dataset.type !== type) visible = false;
             if (niveau && texte.dataset.niveau !== niveau) visible = false;
 
@@ -147,6 +145,7 @@ function testAnaCat(cat, texte) {
 
 
 });
+
 
 
 
