@@ -51,13 +51,19 @@ ANA_LABELS = {
 # 2. Fonctions utilitaires
 # =========================
 
+import unicodedata
+
 def slug(text):
     if not text:
         return "inconnu"
+    # Normalisation pour décomposer les caractères accentués (ex: 'é' -> 'e' + '´')
+    text = unicodedata.normalize('NFD', text)
+    # On ne garde que les caractères non-accentués (ASCII)
+    text = "".join([c for c in text if unicodedata.category(c) != 'Mn'])
     text = text.lower()
+    # Remplacement des apostrophes et caractères non-alphanumériques par des tirets bas
     text = re.sub(r"[^\w]+", "_", text)
     return text.strip("_")
-
 
 def xml_safe(text):
     return escape(text.strip()) if text else ""
@@ -191,3 +197,4 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
             out.write(tei)
 
         print(f"✔ TEI créé : {filename}")
+
