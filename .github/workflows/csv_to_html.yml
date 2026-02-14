@@ -5,47 +5,55 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+    # 1️⃣ Récupérer le code du dépôt
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    # 2️⃣ Installer Python
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
 
+    # 3️⃣ Installer les dépendances Python si nécessaire
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt || echo "Pas de requirements.txt"
 
+    # 4️⃣ Générer TEI depuis CSV
     - name: CSV to TEI
       run: python py/csv_to_xml.py
 
+    # 5️⃣ Télécharger Saxon HE et extraire le JAR
     - name: Download Saxon HE
       run: |
-        wget https://github.com/Saxonica/Saxon-HE/releases/download/HE12.3/saxon-he-12.3.jar -O saxon-he.jar
+        wget https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE12-9/SaxonHE12-9J.zip -O saxon.zip
+        unzip saxon.zip -d saxon
 
-    - name: TEI to HTML
+    # 6️⃣ Transformer TEI → HTML
+    - name: TEI to HTML with Saxon
       run: |
         mkdir -p data
         for tei_file in tei/*.xml; do
-          java -jar saxon-he.jar -s:"$tei_file" -xsl:xsl/xml_to_html.xsl -o:"data/$(basename "${tei_file%.xml}.html")"
+          java -cp "saxon/saxon-he-12.9.jar:saxon/lib/*" net.sf.saxon.Transform \
+            -s:"$tei_file" \
+            -xsl:xsl/xml_to_html.xsl \
+            -o:"data/$(basename "${tei_file%.xml}.html")"
         done
 
-    - name: Commit and push HTML files
+    # 7️⃣ Commit & push HTML générés
+    - name: Commit HTML files
       run: |
-        git config user.email "action@github.com"
-        git config user.name "GitHub Action"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add data/
-        git diff-index --quiet HEAD || git commit -m "Update HTML from CSV"
-        git push origin HEAD:main
+        git commit -m "Update HTML from CSV" || echo "Rien à committer"
+        git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
