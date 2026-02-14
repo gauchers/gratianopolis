@@ -23,7 +23,7 @@ const ANA_LABELS = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     const compteur = document.getElementById("compteur");
     const messageVide = document.getElementById("message-vide");
@@ -31,26 +31,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let textes = [];
 
-    /* Chargement des textes */
-    document.querySelectorAll("[data-src]").forEach(div => {
-        fetch(div.dataset.src)
-            .then(r => r.ok ? r.text() : null)
-            .then(html => {
-                if (!html) return;
+    /* =========================
+       1. Chargement de l’index
+       ========================= */
 
-                const temp = document.createElement("div");
-                temp.innerHTML = html;
+    const files = await fetch("../data/index.json")
+        .then(r => r.json())
+        .catch(() => []);
 
-                const texte = temp.querySelector(".texte");
-                if (!texte) return;
+    /* =========================
+       2. Chargement des textes
+       ========================= */
 
-                texte.style.display = "none";
-                corpus.appendChild(texte);
-                textes.push(texte);
-            });
-    });
+    for (const file of files.filter(f => f.startsWith("la_"))) {
+        const html = await fetch(`../data/${file}`)
+            .then(r => r.ok ? r.text() : null);
 
-    /* Menus déroulants ana */
+        if (!html) continue;
+
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+
+        const texte = temp.querySelector(".texte");
+        if (!texte) continue;
+
+        texte.style.display = "none";
+        corpus.appendChild(texte);
+        textes.push(texte);
+    }
+
+    /* =========================
+       3. Menus déroulants
+       ========================= */
+
     document.querySelectorAll("select.ana").forEach(select => {
         const cat = select.dataset.cat;
         select.innerHTML = `<option value="">—</option>`;
@@ -63,9 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* Écouteurs */
     document.querySelectorAll("select")
         .forEach(s => s.addEventListener("change", appliquerFiltres));
+
+    /* =========================
+       4. Filtres
+       ========================= */
 
     function appliquerFiltres() {
         const type = document.getElementById("type").value;
@@ -107,49 +123,30 @@ document.addEventListener("DOMContentLoaded", () => {
             .some(s => s.value);
     }
 
-function testAnaCat(cat, texte) {
-    const selects = [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)];
-    const ops = [...document.querySelectorAll(`.op[data-cat="${cat}"]`)];
-    const anaSet = (texte.dataset[cat] || "").split(/\s+/).filter(s => s.length > 0);
+    function testAnaCat(cat, texte) {
+        const selects = [...document.querySelectorAll(`.ana[data-cat="${cat}"]`)];
+        const ops = [...document.querySelectorAll(`.op[data-cat="${cat}"]`)];
+        const anaSet = (texte.dataset[cat] || "").split(/\s+/).filter(Boolean);
 
-    let result = null;
+        let result = null;
 
-    for (let i = 0; i < selects.length; i++) {
-        const value = selects[i].value;
-        if (!value) continue;
+        for (let i = 0; i < selects.length; i++) {
+            const value = selects[i].value;
+            if (!value) continue;
 
-        const present = anaSet.includes(value);
-        
-        // On récupère l'opérateur situé AVANT ce select (si i > 0)
-        const op = i > 0 ? ops[i - 1].value : "or";
+            const present = anaSet.includes(value);
+            const op = i > 0 ? ops[i - 1].value : "or";
 
-        if (result === null) {
-            // C'est le premier critère rempli de la ligne
-            // Si l'utilisateur a mis "SANS" devant un champ alors que le précédent est vide, 
-            // on considère qu'il veut (Rien) SANS (Valeur), donc il faut inverser.
-            result = (op === "without") ? !present : present;
-        } else {
-            // Application des opérateurs classiques
-            if (op === "without") {
-                result = result && !present;
-            } else if (op === "and") {
-                result = result && present;
-            } else { // "or"
-                result = result || present;
+            if (result === null) {
+                result = (op === "without") ? !present : present;
+            } else {
+                if (op === "without") result = result && !present;
+                else if (op === "and") result = result && present;
+                else result = result || present;
             }
         }
+
+        return result === null ? true : result;
     }
 
-    return result === null ? true : result;
-}
-
-
 });
-
-
-
-
-
-
-
-
