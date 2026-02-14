@@ -58,17 +58,21 @@
     <!-- TEMPLATE PRINCIPAL -->
     <!-- ===================================================== -->
     <xsl:template match="/">
-    <xsl:for-each select="collection('../tei?select=*.xml')">
         
-        <xsl:variable name="fichier-name"
-            select="normalize-space(.//tei:title[@type = 'fichier'])"/>
-        
-        <xsl:variable name="clean-name" select="replace($fichier-name, '\.xml$', '')"/>
-        
-        <xsl:result-document
-            href="../data/{$clean-name}.html"
-            method="html"
-            encoding="UTF-8">
+        <xsl:for-each select="collection('../tei?select=*.xml')">
+            
+            <xsl:variable name="lang"
+                select=".//tei:teiHeader/tei:profileDesc/tei:langUsage/tei:language/@ident"/>
+            
+            <xsl:variable name="fichier-name"
+                select="normalize-space(.//tei:title[@type = 'fichier'])"/>
+            
+            <xsl:variable name="output-filename" select="replace($fichier-name, '\.xml$', '.html')"/>
+            
+            <xsl:result-document
+                href="../data/{$output-filename}"
+                method="html"
+                encoding="UTF-8">
                 
                 <html lang="fr">
                     <head>
