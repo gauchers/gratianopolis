@@ -58,31 +58,17 @@
     <!-- TEMPLATE PRINCIPAL -->
     <!-- ===================================================== -->
     <xsl:template match="/">
+    <xsl:for-each select="collection('../tei?select=*.xml')">
         
-        <xsl:for-each select="collection('../tei?select=*.xml')">
-            
-            <!-- langue du document -->
-            <xsl:variable name="lang"
-                select=".//tei:teiHeader/tei:profileDesc/tei:langUsage/tei:language/@ident"/>
-            
-            <!-- préfixe du fichier -->
-            <xsl:variable name="prefix">
-                <xsl:choose>
-                    <xsl:when test="$lang = 'la'">la_</xsl:when>
-                    <xsl:when test="$lang = 'grc'">grc_</xsl:when>
-                    <xsl:otherwise>unk_</xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
-            
-            <!-- nom logique du fichier -->
-            <xsl:variable name="fichier-name"
-                select="normalize-space(.//tei:title[@type = 'fichier'])"/>
-            
-            <!-- génération HTML -->
-            <xsl:result-document
-                href="../data/{$prefix}{replace($fichier-name, '\s+', '_')}.html"
-                method="html"
-                encoding="UTF-8">
+        <xsl:variable name="fichier-name"
+            select="normalize-space(.//tei:title[@type = 'fichier'])"/>
+        
+        <xsl:variable name="clean-name" select="replace($fichier-name, '\.xml$', '')"/>
+        
+        <xsl:result-document
+            href="../data/{$clean-name}.html"
+            method="html"
+            encoding="UTF-8">
                 
                 <html lang="fr">
                     <head>
