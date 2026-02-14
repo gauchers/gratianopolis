@@ -36,7 +36,7 @@ jobs:
       run: |
         mkdir -p html
         for tei_file in tei/*.xml; do
-          xsltproc xsl/xml_to_html.xsl "$tei_file" -o "html/$(basename "${tei_file%.xml}.html")"
+          xsltproc xsl/xml_to_html.xsl "$tei_file" -o "data/$(basename "${tei_file%.xml}.html")"
         done
 
     # 6️⃣ (Optionnel) Commit & push des fichiers HTML générés
