@@ -47,13 +47,17 @@ jobs:
             -o:"data/$(basename "${tei_file%.xml}.html")"
         done
 
-    # 7️⃣ Commit & push HTML générés
-    - name: Commit HTML files
+    # 7️⃣ Commit & push HTML générés avec token sécurisé
+    - name: Commit and push HTML files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+
+        # Configurer le remote avec le token GitHub Actions
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/gauchers/gratianopolis.git
+
         git add data/
         git commit -m "Update HTML from CSV" || echo "Rien à committer"
-        git push
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
