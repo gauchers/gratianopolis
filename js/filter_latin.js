@@ -31,34 +31,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let textes = [];
 
-    /* =========================
-       1. Chargement de l’index
-       ========================= */
-
     const files = await fetch("../data/index.json")
-        .then(r => r.json())
-        .catch(() => []);
+    .then(r => {
+        if (!r.ok) throw new Error("index.json introuvable");
+        return r.json();
+    })
+    .catch(e => {
+        console.error(e);
+        return [];
+    });
 
-    /* =========================
-       2. Chargement des textes
-       ========================= */
+for (const file of files.filter(f => f.startsWith("la_"))) {
+    const html = await fetch(`../data/${file}`)
+        .then(r => r.ok ? r.text() : null);
 
-    for (const file of files.filter(f => f.startsWith("la_"))) {
-        const html = await fetch(`../data/${file}`)
-            .then(r => r.ok ? r.text() : null);
+    if (!html) continue;
 
-        if (!html) continue;
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
 
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
+    const texte = temp.querySelector(".texte");
+    if (!texte) continue;
 
-        const texte = temp.querySelector(".texte");
-        if (!texte) continue;
+    texte.style.display = "none";
+    corpus.appendChild(texte);
+    textes.push(texte);
+}
 
-        texte.style.display = "none";
-        corpus.appendChild(texte);
-        textes.push(texte);
-    }
 
     /* =========================
        3. Menus déroulants
@@ -150,3 +149,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 });
+
