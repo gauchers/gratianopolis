@@ -31,7 +31,7 @@ jobs:
 
     - name: Download Saxon HE
       run: |
-        wget https://github.com/Saxonica/Saxon-HE/releases/download/12.3/saxon-he-12.3.jar -O saxon-he.jar
+        wget https://github.com/Saxonica/Saxon-HE/releases/download/HE12.3/saxon-he-12.3.jar -O saxon-he.jar
 
     - name: TEI to HTML
       run: |
