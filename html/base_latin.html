@@ -13,7 +13,6 @@
 
 <!-- Filtres généraux -->
 <div id="filtres">
-
     <select id="type">
         <option value="">Type de texte</option>
         <option value="prose">Prose</option>
@@ -30,16 +29,8 @@
 </div>
 
 <!-- Filtres linguistiques -->
-
 <div class="ligne-filtre">
     <label class="titre-filtre">Verbes</label>
-
-    <select class="ana" data-cat="conjugaison"></select>
-    <select class="op" data-cat="conjugaison">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
     <select class="ana" data-cat="conjugaison"></select>
     <select class="op" data-cat="conjugaison">
         <option value="or">OU</option>
@@ -51,13 +42,6 @@
 
 <div class="ligne-filtre">
     <label class="titre-filtre">Noms, pronoms, adjectifs</label>
-
-    <select class="ana" data-cat="morphologie"></select>
-    <select class="op" data-cat="morphologie">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
     <select class="ana" data-cat="morphologie"></select>
     <select class="op" data-cat="morphologie">
         <option value="or">OU</option>
@@ -69,13 +53,6 @@
 
 <div class="ligne-filtre">
     <label class="titre-filtre">Syntaxe</label>
-
-    <select class="ana" data-cat="syntaxe"></select>
-    <select class="op" data-cat="syntaxe">
-        <option value="or">OU</option>
-        <option value="and">ET</option>
-        <option value="without">SANS</option>
-    </select>
     <select class="ana" data-cat="syntaxe"></select>
     <select class="op" data-cat="syntaxe">
         <option value="or">OU</option>
@@ -85,26 +62,16 @@
     <select class="ana" data-cat="syntaxe"></select>
 </div>
 
-
-<!-- Compteur -->
 <p id="compteur"></p>
-
-<!-- Message si aucun résultat -->
 <p id="message-vide" style="display:none;">Aucun texte correspondant</p>
 
 <hr>
 
-<!-- Corpus -->
-<div id="corpus">
-    <div data-src="../data/texte_001.html"></div>
-    <!-- autres fichiers -->
-</div>
+<!-- Corpus (vide au départ) -->
+<div id="corpus"></div>
 
 </main>
 
-<script src="../js/filter.js"></script>
+<script src="../js/filter_latin.js"></script>
 </body>
 </html>
-
-
-
