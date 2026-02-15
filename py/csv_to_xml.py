@@ -56,14 +56,27 @@ import unicodedata
 def slug(text):
     if not text:
         return "inconnu"
-    # Normalisation pour décomposer les caractères accentués (ex: 'é' -> 'e' + '´')
+    
+    # 1. Traitement spécifique des références : remplacer le point par un tiret bas
+    # On le fait avant la normalisation pour ne pas interférer avec d'autres points éventuels
+    text = text.replace('.', '_')
+    
+    # 2. Remplacer les apostrophes par des tirets bas (ex: l'aurore -> l_aurore)
+    text = text.replace("'", "_")
+    
+    # 3. Supprimer les accents (é->e, à->a, û->u, etc.)
+    # La normalisation NFD décompose "é" en "e" + "accent"
     text = unicodedata.normalize('NFD', text)
-    # On ne garde que les caractères non-accentués (ASCII)
+    # On garde tout sauf les "accents" (catégorie 'Mn')
     text = "".join([c for c in text if unicodedata.category(c) != 'Mn'])
+    
+    # 4. Nettoyage final
     text = text.lower()
-    # Remplacement des apostrophes et caractères non-alphanumériques par des tirets bas
+    # On remplace tout ce qui n'est pas alphanumérique (espaces, parenthèses) par un seul _
     text = re.sub(r"[^\w]+", "_", text)
-    return text.strip("_")
+    
+    # On nettoie les doubles underscores potentiels (ex: __) et les bords
+    return re.sub(r"_+", "_", text).strip("_")
 
 def xml_safe(text):
     return escape(text.strip()) if text else ""
@@ -197,4 +210,5 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
             out.write(tei)
 
         print(f"✔ TEI créé : {filename}")
+
 
