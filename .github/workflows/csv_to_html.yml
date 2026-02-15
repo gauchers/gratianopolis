@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-# 1️⃣ IMPORTANT : Autorise le GITHUB_TOKEN à écrire dans le dépôt
+# 1️⃣ Autorise le GITHUB_TOKEN à écrire dans le dépôt
 permissions:
   contents: write
 
@@ -16,7 +16,7 @@ jobs:
     steps:
       # 2️⃣ Récupérer le code
       - name: Checkout repository
-        uses: actions/checkout@v4 # Version mise à jour
+        uses: actions/checkout@v4
 
       # 3️⃣ Installer Python
       - name: Setup Python
@@ -41,7 +41,6 @@ jobs:
           unzip saxon.zip -d saxon
 
       # 7️⃣ Transformer TEI → HTML
-      # Correction de la boucle : on enlève le .xml du nom de fichier final
       - name: TEI to HTML with Saxon
         run: |
           mkdir -p data
@@ -53,22 +52,25 @@ jobs:
               -o:"data/${filename}.html"
           done
 
-      # 8️⃣ Commit & push propre
-      - name: Commit and push HTML files
+      # 8️⃣ Commit & push les fichiers XML et HTML
+      - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # Désactive l'encodage bizarre des caractères accentués dans les logs
+          # Désactive l'affichage des codes octaux pour les accents (ex: \303)
           git config --global core.quotePath false
           
-          git add data/
+          # On ajoute spécifiquement les fichiers générés
+          # Cela inclut les nouveaux fichiers dans tei/ et data/
+          git add data/*.html
+          git add tei/*.xml
           
-          # Vérifie s'il y a des modifications avant de commit
+          # On vérifie s'il y a des changements réels à committer
           if [ -z "$(git status --porcelain)" ]; then
-            echo "Aucune modification détectée dans le dossier data/."
+            echo "Aucune modification détectée."
           else
-            git commit -m "Update HTML files from CSV [skip ci]"
+            git commit -m "Update TEI and HTML files from CSV [skip ci]"
             git push origin main
           fi
         env:
