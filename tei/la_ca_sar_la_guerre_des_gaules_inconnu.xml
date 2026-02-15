@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Coutumes gauloises</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name></name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>CÃ©sar</author>
+            <title type="oeuvre">La guerre des Gaules</title>
+            <title type="fichier">la_ca_sar_la_guerre_des_gaules_inconnu.xml</title>
+            <biblScope></biblScope>
+
+            <term type="prose/poésie" subtype=""/>
+            <term type="mots" n="87"/>
+            <term type="niveau" n="2"/>
+            <term type="coupe" subtype="non"/>
+
+            <term type="conjugaison" ana="indicatif_parfait participe_parfait"/>
+            <term type="morphologie" ana="is"/>
+            <term type="syntaxe" ana="relative infinitive"/>
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_6">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_6">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>

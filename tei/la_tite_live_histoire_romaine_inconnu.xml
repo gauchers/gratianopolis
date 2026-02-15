@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>PrÃ©paratifs de guerre et discours</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name></name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Tite-Live</author>
+            <title type="oeuvre">Histoire Romaine</title>
+            <title type="fichier">la_tite_live_histoire_romaine_inconnu.xml</title>
+            <biblScope></biblScope>
+
+            <term type="prose/poésie" subtype=""/>
+            <term type="mots" n="207"/>
+            <term type="niveau" n="4"/>
+            <term type="coupe" subtype="non"/>
+
+            
+            
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_9">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_9">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>
