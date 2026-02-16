@@ -7,12 +7,12 @@
 
         <respStmt>
           <resp>Contributeur</resp>
-          <name>Emmanuelle Jégo</name>
+          <name role="contributeur">Emmanuelle Jégo</name>
         </respStmt>
 
         <respStmt>
           <resp>Traducteur</resp>
-          <name></name>
+          <name role="traducteur"></name>
         </respStmt>
 
         <respStmt>
