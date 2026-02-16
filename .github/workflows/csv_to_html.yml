@@ -13,51 +13,57 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout (historique complet requis pour git diff)
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # nécessaire pour git diff
+          fetch-depth: 0
 
+      # 2️⃣ Python
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
+      # 3️⃣ Dépendances
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # 🔍 Vérifier si les CSV ont changé
+      # 4️⃣ Détection des changements CSV
       - name: Detect CSV changes
-        id: csv_changes
+        id: csv
         run: |
-          CHANGED_CSV=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- '*.csv')
-          if [ -z "$CHANGED_CSV" ]; then
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- '*.csv')
+          if [ -z "$CHANGED" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Aucun CSV modifié"
           else
             echo "changed=true" >> $GITHUB_OUTPUT
-            echo "$CHANGED_CSV"
+            echo "CSV modifiés :"
+            echo "$CHANGED"
           fi
 
-      # 🔁 Générer TEI seulement si CSV modifié
+      # 5️⃣ CSV → TEI (conditionnel)
       - name: CSV to TEI
-        if: steps.csv_changes.outputs.changed == 'true'
+        if: steps.csv.outputs.changed == 'true'
         run: python py/csv_to_xml.py
 
-      # ⬇️ Saxon seulement si nécessaire
+      # 6️⃣ Saxon (conditionnel)
       - name: Download Saxon HE
-        if: steps.csv_changes.outputs.changed == 'true'
+        if: steps.csv.outputs.changed == 'true'
         run: |
           wget https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE12-9/SaxonHE12-9J.zip -O saxon.zip
-          unzip saxon.zip -d saxon
+          unzip -q saxon.zip -d saxon
 
-      # 🔁 TEI → HTML seulement si CSV modifié
+      # 7️⃣ TEI → HTML (conditionnel)
       - name: TEI to HTML with Saxon
-        if: steps.csv_changes.outputs.changed == 'true'
+        if: steps.csv.outputs.changed == 'true'
         run: |
           mkdir -p data
           for tei_file in tei/*.xml; do
+            [ -e "$tei_file" ] || continue
             filename=$(basename "$tei_file" .xml)
             java -cp "saxon/saxon-he-12.9.jar:saxon/lib/*" net.sf.saxon.Transform \
               -s:"$tei_file" \
@@ -65,20 +71,25 @@ jobs:
               -o:"data/${filename}.html"
           done
 
-      # 📄 Génération de index.json (toujours)
+      # 8️⃣ Génération de index.json (toujours)
       - name: Generate index.json
         run: |
           mkdir -p data
-          ls data/*.html 2>/dev/null | xargs -n 1 basename | jq -R . | jq -s . > data/index.json
+          ls data/*.html 2>/dev/null \
+            | xargs -n 1 basename \
+            | jq -R . \
+            | jq -s . > data/index.json
 
-      # 🚀 Commit & push uniquement si changements
+      # 9️⃣ Commit & push sûrs
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git config --global core.quotePath false
 
-          git add tei/*.xml data/*.html data/index.json
+          # Ajout robuste (aucune erreur si vide)
+          git add data || true
+          git add tei || true
 
           if [ -z "$(git status --porcelain)" ]; then
             echo "Aucune modification détectée."
