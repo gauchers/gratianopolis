@@ -144,12 +144,12 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
 
         <respStmt>
           <resp>Contributeur</resp>
-          <name>{xml_safe(row.get("Contributrice"))}</name>
+          <name role="contributeur">{xml_safe(row.get("Contributrice"))}</name>
         </respStmt>
 
         <respStmt>
           <resp>Traducteur</resp>
-          <name>{xml_safe(row.get("Crédit Traduction"))}</name>
+          <name role="traducteur">{xml_safe(row.get("Crédit Traduction"))}</name>
         </respStmt>
 
         <respStmt>
@@ -210,6 +210,7 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
             out.write(tei)
 
         print(f"✔ TEI créé : {filename}")
+
 
 
 
