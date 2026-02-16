@@ -140,8 +140,8 @@
                                 </xsl:for-each>
                             </p>
                             
-                            <strong>Contribution : </strong>
-                            <xsl:value-of select=".//tei:name[@role='contributeur']"/>
+                            <p><strong>Contribution : </strong>
+                            <xsl:value-of select=".//tei:name[@role='contributeur']"/></p>
                             
                         </div>
                     </body>
