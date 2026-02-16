@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Ebats de Mars et de Vénus</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Reposianus</author>
+            <title type="oeuvre">L’union de Mars et de Vénus</title>
+            <title type="fichier">la_reposianus_l_union_de_mars_et_de_venus_98_122.xml</title>
+            <biblScope>98-122</biblScope>
+
+            <term type="prose/poésie" subtype="poesie"/>
+            <term type="mots" n="177"/>
+            <term type="niveau" n="4"/>
+            <term type="coupe" subtype="non"/>
+
+            
+            
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_8">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_8">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>

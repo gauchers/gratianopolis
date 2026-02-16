@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Amour d'Artémise pour son époux</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Aulu-Gelle</author>
+            <title type="oeuvre">Nuits Attiques</title>
+            <title type="fichier">la_aulu_gelle_nuits_attiques_10_18.xml</title>
+            <biblScope>10.18</biblScope>
+
+            <term type="prose/poésie" subtype="prose"/>
+            <term type="mots" n="75"/>
+            <term type="niveau" n="2"/>
+            <term type="coupe" subtype="non"/>
+
+            <term type="conjugaison" ana="indicatif_présent indicatif_parfait infinitif_présent infinitif_parfait participe_parfait déponent"/>
+            <term type="morphologie" ana="is"/>
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_4">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_4">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>

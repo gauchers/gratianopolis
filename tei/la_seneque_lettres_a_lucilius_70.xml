@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Réflexions sur le suicide</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Sénèque</author>
+            <title type="oeuvre">Lettres à Lucilius</title>
+            <title type="fichier">la_seneque_lettres_a_lucilius_70.xml</title>
+            <biblScope>70</biblScope>
+
+            <term type="prose/poésie" subtype="prose"/>
+            <term type="mots" n="173"/>
+            <term type="niveau" n="4"/>
+            <term type="coupe" subtype="non"/>
+
+            
+            
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_14">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_14">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>

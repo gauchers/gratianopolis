@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Meurtre de Britannicus</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Tacite</author>
+            <title type="oeuvre">Annales</title>
+            <title type="fichier">la_tacite_annales_13_16_17.xml</title>
+            <biblScope>13.16-17</biblScope>
+
+            <term type="prose/poésie" subtype="prose"/>
+            <term type="mots" n="193"/>
+            <term type="niveau" n="4"/>
+            <term type="coupe" subtype="non"/>
+
+            
+            
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_7">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_7">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>

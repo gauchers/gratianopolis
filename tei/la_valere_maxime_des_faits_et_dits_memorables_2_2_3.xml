@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Rome et la langue grecque</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Valère Maxime</author>
+            <title type="oeuvre">Des faits et dits mémorables</title>
+            <title type="fichier">la_valere_maxime_des_faits_et_dits_memorables_2_2_3.xml</title>
+            <biblScope>2.2-3</biblScope>
+
+            <term type="prose/poésie" subtype="prose"/>
+            <term type="mots" n="180"/>
+            <term type="niveau" n="4"/>
+            <term type="coupe" subtype="non"/>
+
+            
+            
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_10">
+        
+      </ab>
+
+      <ab type="trad" corresp="#texte_10">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>
