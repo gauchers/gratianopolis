@@ -5,7 +5,6 @@ on:
     branches:
       - main
 
-# 1️⃣ Autorise le GITHUB_TOKEN à écrire dans le dépôt
 permissions:
   contents: write
 
@@ -14,34 +13,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 2️⃣ Récupérer le code
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # nécessaire pour git diff
 
-      # 3️⃣ Installer Python
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # 4️⃣ Installer les dépendances
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # 5️⃣ Générer TEI depuis CSV
+      # 🔍 Vérifier si les CSV ont changé
+      - name: Detect CSV changes
+        id: csv_changes
+        run: |
+          CHANGED_CSV=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- '*.csv')
+          if [ -z "$CHANGED_CSV" ]; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "$CHANGED_CSV"
+          fi
+
+      # 🔁 Générer TEI seulement si CSV modifié
       - name: CSV to TEI
+        if: steps.csv_changes.outputs.changed == 'true'
         run: python py/csv_to_xml.py
 
-      # 6️⃣ Télécharger Saxon HE
+      # ⬇️ Saxon seulement si nécessaire
       - name: Download Saxon HE
+        if: steps.csv_changes.outputs.changed == 'true'
         run: |
           wget https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE12-9/SaxonHE12-9J.zip -O saxon.zip
           unzip saxon.zip -d saxon
 
-      # 7️⃣ Transformer TEI → HTML
+      # 🔁 TEI → HTML seulement si CSV modifié
       - name: TEI to HTML with Saxon
+        if: steps.csv_changes.outputs.changed == 'true'
         run: |
           mkdir -p data
           for tei_file in tei/*.xml; do
@@ -52,25 +65,25 @@ jobs:
               -o:"data/${filename}.html"
           done
 
-      # 8️⃣ Commit & push les fichiers XML et HTML
+      # 📄 Génération de index.json (toujours)
+      - name: Generate index.json
+        run: |
+          mkdir -p data
+          ls data/*.html 2>/dev/null | xargs -n 1 basename | jq -R . | jq -s . > data/index.json
+
+      # 🚀 Commit & push uniquement si changements
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
-          # Désactive l'affichage des codes octaux pour les accents (ex: \303)
           git config --global core.quotePath false
-          
-          # On ajoute spécifiquement les fichiers générés
-          # Cela inclut les nouveaux fichiers dans tei/ et data/
-          git add data/*.html
-          git add tei/*.xml
-          
-          # On vérifie s'il y a des changements réels à committer
+
+          git add tei/*.xml data/*.html data/index.json
+
           if [ -z "$(git status --porcelain)" ]; then
             echo "Aucune modification détectée."
           else
-            git commit -m "Update TEI and HTML files from CSV [skip ci]"
+            git commit -m "Update TEI, HTML and index.json from CSV [skip ci]"
             git push origin main
           fi
         env:
