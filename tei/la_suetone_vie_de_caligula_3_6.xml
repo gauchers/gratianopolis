@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Eloge de Germancus</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name>Sarah Gaucher</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Suétone</author>
+            <title type="oeuvre">Vie de Caligula</title>
+            <title type="fichier">la_suetone_vie_de_caligula_3_6.xml</title>
+            <biblScope>3-6</biblScope>
+
+            <term type="prose/poésie" subtype="prose"/>
+            <term type="mots" n="140"/>
+            <term type="niveau" n="2"/>
+            <term type="coupe" subtype="non"/>
+
+            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent infinitif_parfait infinitif_parfait_passif participe_parfait participe_futur participe_substantivé déponent"/>
+            <term type="morphologie" ana="comparatif is"/>
+            <term type="syntaxe" ana="relative infinitive ablatif_absolu omission_esse"/>
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="la"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_4">
+        Omnes Germanico corporis animique uirtutes [...] contigisse satis constat : formam et fortitudinem egregiam, ingenium in utroque eloquentiae doctrinaeque genere praecellens, beniuolentiam singularem [...] mirumque et efficax studium. Formae minus congruebat gracilitas crurum, sed ea quoque paulatim repleta assidua equi uectatione post cibum. Hostem comminus saepe percussit. Orauit causas etiam triumphalis ; atque inter cetera studiorum monimenta reliquit et comoedias Graecas. Domi forisque ciuilis, libera ac foederata oppida sine lictoribus adibat. [...] Caesorum clade Variana ueteres ac dispersas reliquias uno tumulo humaturus, colligere sua manu et comportare primus adgressus est. Tamen longe maiora et firmiora de eo iudicia in morte ac post mortem extiterunt. [...] Quo defunctus est die, lapidata sunt templa, subuersae deum arae, Lares a quibusdam familiares in publicum abiecti, partus coniugum expositi. [...] Auxit gloriam desideriumque defuncti et atrocitas insequentium temporum, cunctis nec temere opinantibus reuerentia eius ac metu repressam Tiberi saeuitiam, quae mox eruperit.
+      </ab>
+
+      <ab type="trad" corresp="#texte_4">
+        
+      </ab>
+    </body>
+  </text>
+</TEI>
