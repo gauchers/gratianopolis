@@ -9,17 +9,13 @@ const ANA_LABELS = {
         "participe_parfait": "Participe parfait",
         "participe_futur": "Participe futur",
         "participe_substantivé": "Participe substantivé",
-        "déponent": "Déponent"
     },
     morphologie: {
-        "is": "is, ea, id",
         "comparatif": "Comparatif"
     },
     syntaxe: {
         "relative": "Proposition relative",
         "infinitive": "Proposition infinitive",
-        "ablatif_absolu": "Ablatif absolu",
-        "omission_esse": "Omission de esse"
     }
 };
 
@@ -41,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return [];
     });
 
-for (const file of files.filter(f => f.startsWith("la_"))) {
+for (const file of files.filter(f => f.startsWith("grc_"))) {
     const html = await fetch(`../data/${file}`)
         .then(r => r.ok ? r.text() : null);
 
