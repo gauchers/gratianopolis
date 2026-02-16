@@ -101,7 +101,7 @@ def build_ana(field_value, category):
 
 
 def prose_poesie(value):
-    return value.strip().lower() if value else ""
+    return slug(value) if value else ""
 
 
 def langue(value):
@@ -210,5 +210,6 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
             out.write(tei)
 
         print(f"✔ TEI créé : {filename}")
+
 
 
