@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout (historique complet requis pour git diff)
+      # 1️⃣ Checkout (historique complet pour git diff)
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -31,35 +31,37 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # 4️⃣ Détection des changements CSV
-      - name: Detect CSV changes
-        id: csv
+      # 4️⃣ Détection des changements pertinents
+      - name: Detect source changes (CSV / XSL / PY)
+        id: sources
         run: |
-          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- '*.csv')
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} \
+            -- '*.csv' 'py/*.py' 'xsl/*.xsl')
+
           if [ -z "$CHANGED" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
-            echo "Aucun CSV modifié"
+            echo "Aucune source modifiée"
           else
             echo "changed=true" >> $GITHUB_OUTPUT
-            echo "CSV modifiés :"
+            echo "Sources modifiées :"
             echo "$CHANGED"
           fi
 
       # 5️⃣ CSV → TEI (conditionnel)
       - name: CSV to TEI
-        if: steps.csv.outputs.changed == 'true'
+        if: steps.sources.outputs.changed == 'true'
         run: python py/csv_to_xml.py
 
       # 6️⃣ Saxon (conditionnel)
       - name: Download Saxon HE
-        if: steps.csv.outputs.changed == 'true'
+        if: steps.sources.outputs.changed == 'true'
         run: |
           wget https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE12-9/SaxonHE12-9J.zip -O saxon.zip
           unzip -q saxon.zip -d saxon
 
       # 7️⃣ TEI → HTML (conditionnel)
       - name: TEI to HTML with Saxon
-        if: steps.csv.outputs.changed == 'true'
+        if: steps.sources.outputs.changed == 'true'
         run: |
           mkdir -p data
           for tei_file in tei/*.xml; do
@@ -71,7 +73,7 @@ jobs:
               -o:"data/${filename}.html"
           done
 
-      # 8️⃣ Génération de index.json (toujours)
+      # 8️⃣ index.json (toujours)
       - name: Generate index.json
         run: |
           mkdir -p data
@@ -80,21 +82,20 @@ jobs:
             | jq -R . \
             | jq -s . > data/index.json
 
-      # 9️⃣ Commit & push sûrs
+      # 9️⃣ Commit & push (robuste)
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git config --global core.quotePath false
 
-          # Ajout robuste (aucune erreur si vide)
           git add data || true
           git add tei || true
 
           if [ -z "$(git status --porcelain)" ]; then
             echo "Aucune modification détectée."
           else
-            git commit -m "Update TEI, HTML and index.json from CSV [skip ci]"
+            git commit -m "Update TEI, HTML and index.json [skip ci]"
             git push origin main
           fi
         env:
