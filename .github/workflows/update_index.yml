@@ -2,30 +2,24 @@ name: Update HTML Index
 
 on:
   push:
+    branches:
+      - main  # Vérifiez que votre branche s'appelle bien 'main' et non 'master'
     paths:
-      - 'data/*.html' # S'exécute uniquement si des fichiers HTML dans 'data' changent
+      - 'data/*.html'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # ESSENTIEL : Donner la permission d'écrire dans le dépôt
     permissions:
-      contents: write # Permet au script de renvoyer le fichier modifié
+      contents: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Récupère tout l'historique pour éviter des erreurs au push
 
-      - name: Generate index.json
+      - name: Update index.json
         run: |
-          cd data
-          # Liste tous les .html, les met au format JSON et crée le fichier
-          ls *.html | jq -R -s -c 'split("\n") | map(select(length > 0))' > index.json
-          echo "Index mis à jour avec succès."
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/index.json
-          git commit -m "chore: mise à jour automatique de index.json" || echo "Aucun changement à commit"
-          git push
+          # On entre
