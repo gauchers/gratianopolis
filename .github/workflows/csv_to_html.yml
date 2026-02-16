@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout (historique complet pour git diff)
+      # 1️⃣ Checkout (historique complet requis)
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -31,41 +31,68 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # 4️⃣ Détection des changements pertinents
-      - name: Detect source changes (CSV / XSL / PY)
+      # 4️⃣ Détection des changements OU fichiers manquants
+      - name: Detect source changes or missing outputs
         id: sources
         run: |
+          NEED_REBUILD=false
+
+          # 🔍 Changements sources
           CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} \
             -- '*.csv' 'py/*.py' 'xsl/*.xsl')
 
-          if [ -z "$CHANGED" ]; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "Aucune source modifiée"
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
+          if [ -n "$CHANGED" ]; then
             echo "Sources modifiées :"
             echo "$CHANGED"
+            NEED_REBUILD=true
           fi
 
-      # 5️⃣ CSV → TEI (conditionnel)
+          # 🔍 TEI manquants
+          if ! ls tei/*.xml >/dev/null 2>&1; then
+            echo "⚠️ Aucun fichier TEI trouvé"
+            NEED_REBUILD=true
+          fi
+
+          # 🔍 HTML manquants
+          if ! ls data/*.html >/dev/null 2>&1; then
+            echo "⚠️ Aucun fichier HTML trouvé"
+            NEED_REBUILD=true
+          fi
+
+          if [ "$NEED_REBUILD" = true ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "➡️ Régénération nécessaire"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Aucune action nécessaire"
+          fi
+
+      # 5️⃣ CSV → TEI
       - name: CSV to TEI
         if: steps.sources.outputs.changed == 'true'
         run: python py/csv_to_xml.py
 
-      # 6️⃣ Saxon (conditionnel)
+      # 6️⃣ Télécharger Saxon
       - name: Download Saxon HE
         if: steps.sources.outputs.changed == 'true'
         run: |
           wget https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE12-9/SaxonHE12-9J.zip -O saxon.zip
           unzip -q saxon.zip -d saxon
 
-      # 7️⃣ TEI → HTML (conditionnel)
+      # 7️⃣ TEI → HTML (sécurisé)
       - name: TEI to HTML with Saxon
         if: steps.sources.outputs.changed == 'true'
         run: |
           mkdir -p data
           for tei_file in tei/*.xml; do
             [ -e "$tei_file" ] || continue
+
+            # ⛔ ignorer fichiers vides
+            if [ ! -s "$tei_file" ]; then
+              echo "⚠️ TEI vide ignoré : $tei_file"
+              continue
+            fi
+
             filename=$(basename "$tei_file" .xml)
             java -cp "saxon/saxon-he-12.9.jar:saxon/lib/*" net.sf.saxon.Transform \
               -s:"$tei_file" \
@@ -73,7 +100,7 @@ jobs:
               -o:"data/${filename}.html"
           done
 
-      # 8️⃣ index.json (toujours)
+      # 8️⃣ Génération de index.json (toujours)
       - name: Generate index.json
         run: |
           mkdir -p data
