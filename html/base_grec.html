@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gratianopolis</title>
+    <link rel="stylesheet" href="../css/style_base_grec.css">
+</head>
+<body>
+
+<main class="container">
+
+<h1>Corpus Gratianopolitanum</h1>
+
+<!-- Filtres généraux -->
+<div id="filtres">
+    <select id="type">
+        <option value="">Type de texte</option>
+        <option value="prose">Prose</option>
+        <option value="poesie">Poésie</option>
+    </select>
+
+    <select id="niveau">
+        <option value="">Difficulté</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
+
+<!-- Filtres linguistiques -->
+<div class="ligne-filtre">
+    <label class="titre-filtre">Verbes</label>
+    <select class="ana" data-cat="conjugaison"></select>
+    <select class="op" data-cat="conjugaison">
+        <option value="or">OU</option>
+        <option value="and">ET</option>
+        <option value="without">SANS</option>
+    </select>
+    <select class="ana" data-cat="conjugaison"></select>
+    <select class="op" data-cat="conjugaison">
+        <option value="or">OU</option>
+        <option value="and">ET</option>
+        <option value="without">SANS</option>
+    </select>
+    <select class="ana" data-cat="conjugaison"></select>
+</div>
+
+<div class="ligne-filtre">
+    <label class="titre-filtre">Noms, pronoms, adjectifs</label>
+    <select class="ana" data-cat="morphologie"></select>
+    <select class="op" data-cat="morphologie">
+        <option value="or">OU</option>
+        <option value="and">ET</option>
+        <option value="without">SANS</option>
+    </select>
+    <select class="ana" data-cat="morphologie"></select>
+     <select class="op" data-cat="morphologie">
+        <option value="or">OU</option>
+        <option value="and">ET</option>
+        <option value="without">SANS</option>
+    </select>
+    <select class="ana" data-cat="morphologie"></select>
+</div>
+
+<div class="ligne-filtre">
+    <label class="titre-filtre">Syntaxe</label>
+    <select class="ana" data-cat="syntaxe"></select>
+    <select class="op" data-cat="syntaxe">
+        <option value="or">OU</option>
+        <option value="and">ET</option>
+        <option value="without">SANS</option>
+    </select>
+    <select class="ana" data-cat="syntaxe"></select>
+    <select class="op" data-cat="syntaxe">
+        <option value="or">OU</option>
+        <option value="and">ET</option>
+        <option value="without">SANS</option>
+    </select>
+    <select class="ana" data-cat="syntaxe"></select>
+</div>
+
+<p id="compteur"></p>
+<p id="message-vide" style="display:none;">Aucun texte correspondant</p>
+
+<hr>
+
+<!-- Corpus (vide au départ) -->
+<div id="corpus"></div>
+
+</main>
+
+<script src="../js/filter_grec.js"></script>
+</body>
+</html>
