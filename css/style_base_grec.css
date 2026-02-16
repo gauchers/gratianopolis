@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+.container {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 40px;
+}
+
+
+#filtres {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 25px auto;
+}
+
+.ligne-filtre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto 12px auto;
+}
+
+
+
+.titre-filtre {
+    min-width: 200px;      /* un peu plus large */
+    font-weight: bold;
+    text-align: left;      /* ← changement important */
+    padding-right: 15px;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   SELECTS (TOUS)
+   ========================= */
+
+select {
+    font-size: 1em;
+    font-family: inherit;
+    padding: 6px 8px;
+    border: 1px solid #999;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+/* Selects de valeurs linguistiques */
+select.ana {
+    min-width: 220px;
+}
+
+/* Selects opérateurs (OU / ET / SANS) */
+select.op {
+    min-width: 70px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Hover / focus léger */
+select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* =========================
+   COMPTEUR ET MESSAGES
+   ========================= */
+
+#compteur {
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+#message-vide {
+    font-style: italic;
+    margin-top: 30px;
+}
+
+/* =========================
+   CORPUS
+   ========================= */
+
+.texte {
+    margin-bottom: 50px;
+}
+
+.notice {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.texte p {
+    text-align: justify;
+}
+
+/* =========================
+   LIGNE DE SÉPARATION
+   ========================= */
+
+hr {
+    margin: 50px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* =========================
+   BADGES
+   ========================= */
+
+.badge {
+  padding: 0 5px;
+  border-radius: 10px;
+  color: white;
+  margin: 3px;
+  text-transform: capitalize;
+  float: right;
+}
+
+.badge.type {
+  border: 1px solid darkorchid;
+  background: darkorchid;
+}
+
+.badge.niveau {
+  border: 1px solid lightblue;
+  background: lightblue;
+  color: black;
+}
+
