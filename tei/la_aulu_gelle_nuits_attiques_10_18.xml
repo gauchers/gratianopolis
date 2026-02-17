@@ -57,12 +57,12 @@
 
   <text>
     <body>
-      <ab type="orig" xml:id="texte_4">
-        
+      <ab type="orig" xml:id="texte_5">
+        <l>Artemisia Mausolum uirum amasse fertur supra omnes amorum fabulas ultraque affectionis humanae fidem. Mausolus autem fuit [...] rex terrae Cariae [...]. Is Mausolus, ubi fato perfunctus est, inter lamenta et manus uxoris funere magnifico sepultus est ; Artemisia, luctu atque desiderio mariti flagrans uxor, ossa cineremque eius mixta odoribus contusaque in faciem pulueris aquae indidit ebibitque multaque alia uiolenti amoris indicia fecisse dicitur. Molita quoque est […] sepulcrum illud memoratissimum dignatumque numerari inter septem omnium terrarum spectacula.</l>
       </ab>
 
-      <ab type="trad" corresp="#texte_4">
-        
+      <ab type="trad" corresp="#texte_5">
+        <l>On dit qu’Artemise aima son époux Mausole au-delà de toutes les histoires d’amour et de tout témoignage d’affection humaine. Mausole était par ailleurs roi de la terre de Carie. Le dit Mausole, lorsqu’il en eut fini avec la vie, fut enterré entre les lamentations et les mains de son épouse dans une magnifique cérémonie funèbre ; Artemise, épouse brûlant du deuil et du manque de son mari, mit dans de l’eau les os et la cendre de celui-ci, mélangés à des odeurs et broyés pour leur donner l’aspect de la poussière, elle but et on dit qu’elle fit de nombreuses autres démonstrations de son violent amour. Elle construisit également cet illustre tombeau tout à fait mémorable et digne d’être compté au nombre des sept merveilles du monde.</l>
       </ab>
     </body>
   </text>
