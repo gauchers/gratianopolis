@@ -1,6 +1,7 @@
 import csv
 import os
 import re
+import unicodedata
 from xml.sax.saxutils import escape
 
 # =========================
@@ -51,32 +52,21 @@ ANA_LABELS = {
 # 2. Fonctions utilitaires
 # =========================
 
-import unicodedata
-
 def slug(text):
     if not text:
         return "inconnu"
-    
-    # 1. Traitement spécifique des références : remplacer le point par un tiret bas
-    # On le fait avant la normalisation pour ne pas interférer avec d'autres points éventuels
-    text = text.replace('.', '_')
-    
-    # 2. Remplacer les apostrophes par des tirets bas (ex: l'aurore -> l_aurore)
+
+    text = text.replace(".", "_")
     text = text.replace("'", "_")
-    
-    # 3. Supprimer les accents (é->e, à->a, û->u, etc.)
-    # La normalisation NFD décompose "é" en "e" + "accent"
-    text = unicodedata.normalize('NFD', text)
-    # On garde tout sauf les "accents" (catégorie 'Mn')
-    text = "".join([c for c in text if unicodedata.category(c) != 'Mn'])
-    
-    # 4. Nettoyage final
+
+    text = unicodedata.normalize("NFD", text)
+    text = "".join(c for c in text if unicodedata.category(c) != "Mn")
+
     text = text.lower()
-    # On remplace tout ce qui n'est pas alphanumérique (espaces, parenthèses) par un seul _
     text = re.sub(r"[^\w]+", "_", text)
-    
-    # On nettoie les doubles underscores potentiels (ex: __) et les bords
+
     return re.sub(r"_+", "_", text).strip("_")
+
 
 def xml_safe(text):
     return escape(text.strip()) if text else ""
@@ -107,6 +97,22 @@ def prose_poesie(value):
 def langue(value):
     codes = {"Latin": "la", "Grec": "grc"}
     return codes.get(value, value.lower() if value else "")
+
+
+def lines_to_l(text):
+    """
+    Transforme un texte avec sauts de ligne en balises <l>
+    """
+    if not text:
+        return ""
+
+    lines = re.split(r"\r?\n+", text.strip())
+
+    return "\n        ".join(
+        f"<l>{xml_safe(line)}</l>"
+        for line in lines
+        if line.strip()
+    )
 
 # =========================
 # 3. Lecture CSV → TEI
@@ -195,11 +201,11 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
   <text>
     <body>
       <ab type="orig" xml:id="texte_{i}">
-        {xml_safe(row.get('Texte latin/grec'))}
+        {lines_to_l(row.get('Texte latin/grec'))}
       </ab>
 
       <ab type="trad" corresp="#texte_{i}">
-        {xml_safe(row.get('Traduction'))}
+        {lines_to_l(row.get('Traduction'))}
       </ab>
     </body>
   </text>
@@ -210,7 +216,3 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
             out.write(tei)
 
         print(f"✔ TEI créé : {filename}")
-
-
-
-
