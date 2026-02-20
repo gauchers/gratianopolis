@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            
-            
-            
+            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent participe_parfait déponent"/>
+            <term type="morphologie" ana="comparatif is"/>
+            <term type="syntaxe" ana="relative infinitive ablatif_absolu"/>
           </bibl>
         </listBibl>
       </sourceDesc>
@@ -58,11 +58,11 @@
   <text>
     <body>
       <ab type="orig" xml:id="texte_11">
-        
+        <l>Magistratus uero prisci quantopere suam populique Romani maiestatem retinentes se gesserint hinc cognosci potest, quod inter cetera obtinendae grauitatis indicia illud quoque magna cum perseuerantia custodiebant, ne Graecis umquam nisi Latine responsa darent. Quin etiam ipsos, linguae uolubilitate, qua plurimum ualent, excussa, per interpretem loqui cogebant non in urbe tantum nostra, sed etiam in Graecia et Asia, quo scilicet Latinae uocis honos per omnes gentes uenerabilior diffunderetur. Nec illis deerant studia doctrinae, sed nulla non in re pallium  togae subici debere arbitrabantur, indignum esse existimantes inlecebris et suauitati litterarum imperii pondus et auctoritatem donari. Quapropter non es damnandus rustici rigoris crimine, C. Mari , quia gemina lauru coronatam senectutem tuam, Numidicis et Germanicis inlustrem tropaeis, uictor deuictae gentis facundia politiorem fieri noluisti, credo, ne alienigena ingenii exercitatione patrii ritus serus transfuga existeres. Quis ergo huic consuetudini, qua nunc Graecis actionibus aures curiae exurdantur, ianuam patefecit ? Vt opinor, Molo rhetor, qui studia M. Ciceronis acuit : eum namque ante omnes exterarum gentium in senatu sine interprete auditum constat. Quem honorem non inmerito cepit, quoniam summam uim Romanae eloquentiae adiuuerat.</l>
       </ab>
 
       <ab type="trad" corresp="#texte_11">
-        
+        <l>Combien les magistrats d’autrefois, qui gardaient intacte leur grandeur et celle du peuple romain, ont réglé leur conduite, on peut le saisir du fait que, parmi d'autres indices du maintien de leur dignité, ils s’appliquaient avec une grande persévérance à ne jamais faire connaître de décisions aux Grecs sinon en latin. Bien plus, les ayant privés de la volubilité langagière dans laquelle ils excellent, ils obligèrent les Grecs eux-mêmes à parler par l'intermédiaire d'un interprète non seulement dans notre ville mais aussi en Grèce et en Asie, pour que, cela va de soi, la langue latine, rendue plus vénérable, se répande parmi tous les peuples. Non pas que ces magistrats manquaient de goût pour l’étude, mais ils estimaient qu'en toute matière le manteau devait être subordonné à toge, pensant qu'il était indigne que le poids et l'autorité du pouvoir soient sacrifiés au charme et à l’attrait des lettres. C'est pourquoi, Marius, tu ne dois pas être condamné sur le chef d’accusation de sévérité rustique, parce que, toi le conquérant, tu n’as pas voulu que ta vieillesse couronnée de doubles lauriers, éclatante des trophées remportés contre les Numides et les Germains, soit rendue plus raffinée par l'éloquence d'un peuple conquis pour éviter, je crois, de te montrer déserteur tardif de l'usage national par l'exercice d'une intelligence étrangère. Qui donc a ouvert la porte à notre pratique, qui assourdit aujourd’hui les oreilles de la curie de discours à la grecque ? Il s’agit, je crois, du rhéteur Molon, celui qui excita les goûts de Cicéron : et en effet, il est établi que c’est Molon qui, avant tous les peuples étrangers, fut entendu au Sénat sans interprète. Et ce n’est pas sans mérite qu’il reçut cette distinction, puisqu’il avait contribué à la plus grande force de l’éloquence romaine.</l>
       </ab>
     </body>
   </text>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Sur les femmes</title>
+
+        <respStmt>
+          <resp>Contributeur</resp>
+          <name role="contributeur">Emmanuelle Jégo</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Traducteur</resp>
+          <name role="traducteur">Ernest Falconnet</name>
+        </respStmt>
+
+        <respStmt>
+          <resp>Encodage</resp>
+          <name>Sarah GAUCHER</name>
+        </respStmt>
+
+        <principal>Sarah GAUCHER</principal>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>Publication interne</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <listBibl>
+          <bibl>
+            <author>Anacréon</author>
+            <title type="oeuvre">Anacreontea</title>
+            <title type="fichier">grc_anacreon_anacreontea_24.xml</title>
+            <biblScope>24</biblScope>
+
+            <term type="prose/poésie" subtype="poesie"/>
+            <term type="mots" n="45"/>
+            <term type="niveau" n="2"/>
+            <term type="coupe" subtype="non"/>
+
+            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait participe_substantivé"/>
+            
+            
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="grc"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <ab type="orig" xml:id="texte_7">
+        <l>Φύσις κέρατα ταύροις,</l>
+        <l>ὁπλὰς δ᾿ ἔδωκεν ἵπποις,</l>
+        <l>ποδωκίην λαγωοῖς,</l>
+        <l>λέουσι χάσμ᾿ ὀδόντων,</l>
+        <l>τοῖς ἰχθύσιν τὸ νηκτόν,</l>
+        <l>τοῖς ὀρνέοις πέτασθαι,</l>
+        <l>τοῖς ἀνδράσιν φρόνημα,</l>
+        <l>γυναιξὶν οὐκ ἔτ᾿ εἶχεν.</l>
+        <l>τί οὖν; δίδωσι κάλλος</l>
+        <l>ἀντ᾿ ἀσπίδων ἁπασῶν,</l>
+        <l>ἀντ᾿ ἐγχέων ἁπάντων·</l>
+        <l>νικᾷ δὲ καὶ σίδηρον</l>
+        <l>καὶ πῦρ καλή τις οὖσα.</l>
+      </ab>
+
+      <ab type="trad" corresp="#texte_7">
+        <l>La nature a donné aux taureaux des cornes, aux coursiers de durs sabots, aux lièvres la légèreté, aux lions un gouffre armé de dents, aux poissons les nageoires, aux oiseaux les ailes, aux hommes la prudence. Il ne restait rien pour les femmes. Que leur donna-t-elle donc ? La beauté, qui leur sert à la fois de glaive et de bouclier : celle qui est belle triomphe du fer et du feu.</l>
+      </ab>
+    </body>
+  </text>
+</TEI>

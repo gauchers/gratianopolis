@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            
-            
-            
+            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent infinitif_parfait participe_parfait participe_substantivé déponent"/>
+            <term type="morphologie" ana="is"/>
+            <term type="syntaxe" ana="relative infinitive ablatif_absolu omission_esse"/>
           </bibl>
         </listBibl>
       </sourceDesc>
@@ -58,11 +58,11 @@
   <text>
     <body>
       <ab type="orig" xml:id="texte_8">
-        
+        <l>Mos habebatur principum liberos cum ceteris idem aetatis  nobilibus sedentes uesci in adspectu propinquorum propria et parciore mensa. Illic epulante Britannico, quia cibos potusque eius delectus ex ministris gustu explorabat, ne omitteretur institutum aut utriusque morte proderetur scelus, talis dolus repertus est. Innoxia adhuc ac praecalida et libata gustu potio traditur Britannico ; dein, postquam feruore aspernabatur, frigida in aqua adfunditur uenenum, quod ita cunctos eius artus peruasit, ut uox pariter et spiritus eius raperentur. Trepidatur a circumsedentibus, diffugiunt imprudentes : at quibus altior intellectus resistunt, defixi et Neronem intuentes. Ille, ut erat reclinis et nescio similis, solitum ita  ait per comitialem morbum, quo prima ab infantia adflictaretur Britannicus, et redituros paulatim uisus sensusque. At Agrippinae  is pauor, ea consternatio mentis, quamuis uultu premeretur, emicuit, ut perinde ignaram fuisse quam Octauiam sororem Britannici constiterit : quippe sibi supremum auxilium ereptum et parricidii exemplum intellegebat. Octauia quoque, quamuis rudibus annis, dolorem, caritatem, omnes adfectus abscondere didicerat. Ita post breue silentium repetita conuiuii laetitia. Nox eadem necem Britannici et rogum coniunxit, prouiso ante funebri paratu, qui modicus fuit. In campo tamen Martis sepultus est, adeo turbidis imbribus, ut uulgus iram deum portendi crediderit aduersus facinus.</l>
       </ab>
 
       <ab type="trad" corresp="#texte_8">
-        
+        <l>La coutume voulait que les enfants des empereurs prennent leurs repas en présence de leurs proches, assis avec d'autres nobles de leur âge à une table réservée pour eux et plus frugale. C'est là que dînait Britannicus ; comme sa nourriture et ses boissons étaient goûtées par un dégustateur choisi parmi ses assistants, pour éviter soit de déroger la règle soit de trahir le complot en tuant les deux hommes, voici la ruse qu’on mit en place. Une boisson, encore inoffensive, très chaude et déjà goûtée, est donnée à Britannicus ; puis, après qu’il la refusait parce qu'elle était trop chaude, on y verse de l'eau froide et avec elle le poison, qui envahit ses membres tout entiers si efficacement qu'il perdit simultanément la voix et le souffle. Ceux qui étaient assis autour s’agitent, et ceux qui ne comprennent pas ce qui se passe se dispersent ; ceux qui pouvaient lire plus clairement restent assis, interdits et fixant Néron. Ce dernier, comme il était resté allongé et faisait mine de ne pas savoir, dit que c’est un incident habituel, dû à l'épilepsie dont Britannicus était atteint dès sa plus tendre enfance et que la vue et la sens reviendront par degrés. Mais la peur d'Agrippine, son angoisse, malgré le contrôle qu'elle exerçait sur ses traits, furent si visibles qu’il fut évident qu'elle avait été aussi ignorante qu’Octavie la sœur de Britannicus : elle comprenait de fait que on lui avait ôté son dernier allié et que c’était là la répétition de son meurtre. Octavie, elle aussi, malgré son jeune âge, avait appris à cacher ses chagrins, ses affections, ses émotions. Ainsi, après un court silence, la liesse du banquet reprit. La même nuit eurent lieu le meurtre de Britannicus et son bûcher, les préparatifs funéraires, qui étaient assez modestes, ayant été faits à l'avance. Cependant, il fut été enterré au Champ de Mars, sous de telles bourrasques de pluie que la foule crut qu'elles annonçaient la colère des dieux contre le crime.</l>
       </ab>
     </body>
   </text>

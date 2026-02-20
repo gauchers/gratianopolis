@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            
-            
-            
+            <term type="conjugaison" ana="indicatif_présent indicatif_parfait infinitif_présent infinitif_parfait"/>
+            <term type="morphologie" ana="is"/>
+            <term type="syntaxe" ana="relative"/>
           </bibl>
         </listBibl>
       </sourceDesc>
@@ -58,11 +58,11 @@
   <text>
     <body>
       <ab type="orig" xml:id="texte_14">
-        
+        <l>Nam si quis minorem gloriae fructum putat ex Graecis uersibus percipi quam ex Latinis, uehementer errat, propterea quod Graeca leguntur in omnibus fere gentibus, Latina  suis finibus, exiguis sane, continentur. Qua re  si res eae, quas gessimus, orbis terrae regionibus definiuntur, cupere debemus, quo manuum nostrarum tela peruenerint, eodem  gloriam famamque penetrare, quod quum ipsis populis, de quorum rebus scribitur, haec ampla sunt, tum iis certe, qui de uita gloriae causa  dimicant, hoc maximum et periculorum incitamentum est et laborum . Quam multos scriptores rerum suarum magnus ille Alexander secum habuisse dicitur ! Atque is tamen, cum in Sigeo ad Achillis tumulum astitisset : « O fortunate » inquit « adulescens, qui tuae uirtutis Homerum praeconem inueneris ! » Et uere. Nam nisi Ilias illa exstitisset, idem tumulus, qui corpus eius contexerat, nomen etiam obruisset. Quid ? Noster hic Magnus, qui cum uirtute fortunam adaequauit, nonne Theophanem Mytilenaeum, scriptorem rerum suarum, in contione militum ciuitate donauit ?</l>
       </ab>
 
       <ab type="trad" corresp="#texte_14">
-        
+        <l>Car si l’on croit que le fruit de la gloire se recueille moins des vers grecs que des vers latins, on commet une grave erreur, parce que le grec est lu chez presque toutes les nations, tandis que le latin est limité par ses frontières, bien étroites. Pour cette raison, si les actions que nous avons accomplies ont pour limites les bornes de l’univers, nous devons espérer que notre gloire et notre renommée aillent aussi loin que les armes de nos troupes sont parvenues, parce que d’une part pour les peuples mêmes dont on écrit l’histoire ces choses (/écrits) sont importantes (/glorieux), et que d’autre part il ne fait aucun doute que, pour ceux qui risquent leur vie en vue de la gloire, il y a là une très puissante incitation à la fois aux périls et aux fatigues. Combien d’historiens de ses exploits le grand Alexandre eut-il jadis, dit-on, à ses côtés ! Et lui cependant, alors qu’il s’était tenu (/se tenait) près du tombeau d’Achille sur le promontoire de Sigée, dit : « Heureux jeune homme, puisque tu as trouvé un Homère comme héraut de ta valeur ! ». Et il disait vrai. Car si la célèbre Iliade n’avait pas existé, le même tombeau qui avait couvert le corps d’Achille aurait aussi enseveli son nom. Eh quoi ? De nos jours notre Grand Pompée, qui a rendu son succès égal à sa valeur, est-ce qu’il n’a pas, dans une harangue à ses soldats, gratifié Théophane de Mytilène, historien de ses exploits, du droit de cité ?</l>
       </ab>
     </body>
   </text>

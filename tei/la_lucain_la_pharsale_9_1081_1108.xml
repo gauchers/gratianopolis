@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            
-            
-            
+            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent participe_parfait déponent"/>
+            <term type="morphologie" ana="comparatif"/>
+            <term type="syntaxe" ana="infinitive ablatif_absolu omission_esse"/>
           </bibl>
         </listBibl>
       </sourceDesc>
@@ -58,11 +58,38 @@
   <text>
     <body>
       <ab type="orig" xml:id="texte_12">
-        
+        <l>« Nec fallere uosmet</l>
+        <l>credite uictorem : nobis quoque tale paratum</l>
+        <l>litoris hospitium ; ne sic mea colla gerantur</l>
+        <l>Thessaliae fortuna facit. Maiore profecto</l>
+        <l>quam metui poterat discrimine gessimus arma :</l>
+        <l>exilium generique minas Romamque timebam ;</l>
+        <l>poena fugae Ptolemaeus erat. Sed parcimus annis</l>
+        <l>donamusque nefas. Sciat hac pro caede tyrannus</l>
+        <l>nil uenia plus posse dari. Vos condite busto</l>
+        <l>tanti colla ducis, sed non ut crimina solum</l>
+        <l>uestra tegat tellus : iusto date tura sepulchro</l>
+        <l>et placate caput cineresque in litore fusos</l>
+        <l>colligite atque unam sparsis date manibus urnam.</l>
+        <l>Sentiat aduentum soceri uocesque querentis</l>
+        <l>audiat umbra pias. Dum nobis omnia praefert,</l>
+        <l>dum uitam Phario mauolt debere clienti ,</l>
+        <l>laeta dies rapta est populis, concordia mundo</l>
+        <l>nostra perit. Caruere deis mea uota secundis,</l>
+        <l>ut te conplexus positis felicibus armis</l>
+        <l>adfectus a te ueteres uitamque rogarem,</l>
+        <l>Magne , tuam, dignaque satis mercede laborum</l>
+        <l>contentus, par esse tibi. Tunc pace fideli</l>
+        <l>fecissem ut uictus posses ignoscere diuis,</l>
+        <l>fecisses ut Roma mihi. » Nec talia fatus</l>
+        <l>inuenit fletus comitem nec turba querenti</l>
+        <l>credidit : abscondunt gemitus et pectora laeta</l>
+        <l>fronte tegunt, hilaresque nefas spectare cruentum,</l>
+        <l>(o bona libertas !), cum Caesar lugeat, audent.</l>
       </ab>
 
       <ab type="trad" corresp="#texte_12">
-        
+        <l>« Et n’allez pas croire que vous abusiez le vainqueur : à moi aussi un tel accueil était réservé sur votre rivage ; si ce n’est pas ma tête qu’on porte ainsi, c’est à ma bonne fortune en Thessalie que je le dois . Nous avons fait la guerre en nous exposant à un plus grand danger, assurément, que celui que l’on pouvait redouter : l’exil, les menaces d’un gendre, Rome, voilà ce que je craignais ; mais le châtiment de la fuite, c’était Ptolémée. Mais nous pardonnons à son âge et le tenons quitte de son crime impie. Que le tyran sache qu’en retour de ce meurtre, il ne pourra rien obtenir de plus que mon pardon . Quant à vous, ensevelissez la tête d’un si grand chef, mais pas seulement pour que la terre recouvre votre crime : offrez de l’encens à la sépulture qu’il mérite, apaisez sa tête, recueillez ses cendres répandues sur le rivage et offrez une seule urne à ses mânes dispersés. Que son ombre sente l’arrivée de son beau-père et entende, au milieu de ses plaintes , de pieuses paroles. En préférant tout à ma personne, en aimant mieux devoir la vie à son client de Pharos, il a volé aux peuples le jour du bonheur, il a privé à jamais le monde de notre réconciliation. Ils n’ont pas trouvé de dieux favorables, les vœux que je formais de te serrer dans mes bras après avoir déposé mes armes victorieuses, de te demander de m’aimer comme autrefois et de vivre, Magnus, et, satisfait de cette récompense bien digne de mes peines, de te demander de me laisser être ton égal . Alors, par une paix loyale, j’aurais fait que, même vaincu, tu pusses pardonner aux dieux, et toi tu aurais fait que Rome pût me pardonner ». Telles furent ses paroles, mais il ne trouva personne pour se joindre à ses pleurs et la foule ne crut pas à ses plaintes : les soldats renferment leur douleur, ils la déguisent sous l’apparence de la joie et ils osent regarder avec bonheur le crime atroce (ô douce liberté !), alors que César pleure le mort.</l>
       </ab>
     </body>
   </text>
