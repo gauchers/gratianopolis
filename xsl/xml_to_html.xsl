@@ -99,7 +99,7 @@
                             <div class="badge type">
                                 <xsl:choose>
                                     <xsl:when test=".//tei:term[@type='prose/poésie' and @subtype= 'prose']">Prose</xsl:when>
-                                    <xsl:when test=".//tei:term[@type='prose/poésie' and @subtype='poésie']">Poésie</xsl:when>
+                                    <xsl:when test=".//tei:term[@type='prose/poésie' and @subtype='poesie']">Poésie</xsl:when>
                                 </xsl:choose>
                             </div>
                             
@@ -110,11 +110,10 @@
                                     <xsl:value-of select=".//tei:biblScope"/> :
                                     "<xsl:value-of select=".//tei:titleStmt/tei:title"/>"
                                 </strong>
-                                (<xsl:value-of select=".//tei:term[@type='mots']/@n"/> mots environ)
-                            </p>
+                                                            </p>
                             
                             <p>
-                                <strong>Texte latin :</strong><br/>
+                                <strong>Texte latin (<xsl:value-of select=".//tei:term[@type='mots']/@n"/> mots environ) :</strong><br/>
                                 <xsl:apply-templates select=".//tei:ab[@type='orig']"/>
                             </p>
                             
