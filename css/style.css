@@ -1,1 +1,306 @@
-/* ========================= BASE GLOBALE ========================= */ body { margin: 0; font-family: "Georgia", serif; background-color: #f5f5f5; color: #222; } h1 { font-size: 2.8em; margin-bottom: 40px; text-align: center; } h2 { font-size: 2.2em; margin-bottom: 30px; text-align: center; } /* ========================= CONTENEURS ========================= */ .container { max-width: 900px; margin: 80px auto; text-align: center; } /* Conteneur de contenu blanc (index + contribuer) */ .presentation, #contribuer { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); } /* Spécifique contribuer */ #contribuer { text-align: left; } /* ========================= INDEX ========================= */ .presentation { margin-bottom: 60px; font-size: 1.1em; line-height: 1.6; } .choix-langue { display: flex; justify-content: center; gap: 40px; } .btn { display: inline-block; padding: 20px 50px; font-size: 1.4em; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; font-weight: bold; } .grec { background-color: #11b872; color: white; } .latin { background-color: #d63c4f; color: white; } .btn:hover { transform: scale(1.05); opacity: 0.9; } /* ========================= FILTRES / CORPUS ========================= */ #filtres { display: flex; justify-content: center; gap: 12px; margin: 0 auto 25px auto; } .ligne-filtre { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 0 auto 12px auto; } .titre-filtre { min-width: 200px; font-weight: bold; text-align: left; padding-right: 15px; white-space: nowrap; } /* Selects */ select { font-size: 1em; font-family: inherit; padding: 6px 8px; border: 1px solid #999; background-color: #fff; border-radius: 4px; } select.ana { min-width: 220px; } select.op { min-width: 70px; text-align: center; font-weight: bold; } select:focus { outline: none; border-color: #333; } /* ========================= TEXTE / CORPUS ========================= */ #compteur { text-align: left; margin-top: 25px; margin-bottom: 40px; font-weight: bold; } #message-vide { font-style: italic; margin-top: 30px; } .texte { margin-bottom: 50px; } .notice { font-weight: bold; margin-bottom: 10px; } .texte p { text-align: justify; } hr { margin: 50px 0; border: none; border-top: 1px solid #ccc; } /* ========================= BADGES ========================= */ .badge { padding: 0 5px; border-radius: 10px; color: white; margin: 3px; text-transform: capitalize; float: right; } .badge.type { border: 1px solid darkorchid; background: darkorchid; } .badge.niveau { border: 1px solid lightblue; background: lightblue; color: black; } /* ========================= PAGE "CONTRIBUER" ========================= */ #contribuer p { font-size: 1.1em; line-height: 1.6; margin-bottom: 12px; } /* Sections déroulantes */ details { margin-bottom: 25px; border-radius: 6px; border: 1px solid #ddd; background-color: #fafafa; } summary { cursor: pointer; padding: 18px 20px; font-size: 1.3em; font-weight: bold; background-color: #f0f0f0; border-radius: 6px; transition: background-color 0.2s ease; } summary:hover { background-color: #e6e6e6; } details[open] summary { border-bottom: 1px solid #ddd; border-radius: 6px 6px 0 0; } details > *:not(summary) { padding: 20px 25px; } #contribuer ul { padding-left: 20px; } #contribuer li { margin-bottom: 12px; line-height: 1.5; } /* Liens */ #contribuer a { color: #11b872; font-weight: bold; text-decoration: none; } #contribuer a:hover { text-decoration: underline; } /* ========================= RESPONSIVE ========================= */ @media (max-width: 600px) { .container { margin: 40px 15px; } .presentation, #contribuer { padding: 25px; } summary { font-size: 1.15em; } } /* ========================= BARRE HAUTE / CONTRIBUER ========================= */ .top-bar { position: absolute; top: 20px; right: 30px; } /* Bouton Contribuer : reprend le style btn existant, sans modifier les couleurs du site */ .btn-contribuer { padding: 12px 25px; font-size: 1em; background-color: #11b872; /* vert déjà utilisé */ color: white; } /* Responsive */ @media (max-width: 600px) { .top-bar { position: static; text-align: center; margin-top: 20px; margin-bottom: -20px; } }
+/* =====================================================
+   BASE GLOBALE
+   ===================================================== */
+
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* =====================================================
+   CONTENEURS
+   ===================================================== */
+
+.container {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+/* Blocs de contenu blancs (index + contribuer) */
+.presentation,
+#contribuer {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Spécifique à la page contribuer */
+#contribuer {
+    text-align: left;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   INDEX
+   ===================================================== */
+
+.presentation {
+    margin-bottom: 60px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.choix-langue {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 20px 50px;
+    font-size: 1.4em;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.grec {
+    background-color: #11b872;
+    color: white;
+}
+
+.latin {
+    background-color: #d63c4f;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* =====================================================
+   BARRE HAUTE / BOUTON CONTRIBUER
+   ===================================================== */
+
+.top-bar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 10;
+}
+
+.btn-contribuer {
+    padding: 12px 25px;
+    font-size: 1em;
+    background-color: #11b872; /* vert déjà utilisé */
+    color: white;
+}
+
+/* =====================================================
+   FILTRES / CORPUS
+   ===================================================== */
+
+#filtres {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 25px auto;
+}
+
+.ligne-filtre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto 12px auto;
+}
+
+.titre-filtre {
+    min-width: 200px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 15px;
+    white-space: nowrap;
+}
+
+/* Selects */
+
+select {
+    font-size: 1em;
+    font-family: inherit;
+    padding: 6px 8px;
+    border: 1px solid #999;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+select.ana {
+    min-width: 220px;
+}
+
+select.op {
+    min-width: 70px;
+    text-align: center;
+    font-weight: bold;
+}
+
+select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* =====================================================
+   TEXTE / CORPUS
+   ===================================================== */
+
+#compteur {
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+#message-vide {
+    font-style: italic;
+    margin-top: 30px;
+}
+
+.texte {
+    margin-bottom: 50px;
+}
+
+.notice {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.texte p {
+    text-align: justify;
+}
+
+hr {
+    margin: 50px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* =====================================================
+   BADGES
+   ===================================================== */
+
+.badge {
+    padding: 0 5px;
+    border-radius: 10px;
+    color: white;
+    margin: 3px;
+    text-transform: capitalize;
+    float: right;
+}
+
+.badge.type {
+    border: 1px solid darkorchid;
+    background: darkorchid;
+}
+
+.badge.niveau {
+    border: 1px solid lightblue;
+    background: lightblue;
+    color: black;
+}
+
+/* =====================================================
+   PAGE "POUR CONTRIBUER"
+   ===================================================== */
+
+#contribuer p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Sections déroulantes */
+
+details {
+    margin-bottom: 25px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+summary {
+    cursor: pointer;
+    padding: 18px 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+summary:hover {
+    background-color: #e6e6e6;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #ddd;
+    border-radius: 6px 6px 0 0;
+}
+
+details > *:not(summary) {
+    padding: 20px 25px;
+}
+
+#contribuer ul {
+    padding-left: 20px;
+}
+
+#contribuer li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+#contribuer a {
+    color: #11b872;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#contribuer a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        margin: 40px 15px;
+    }
+
+    .presentation,
+    #contribuer {
+        padding: 25px;
+    }
+
+    summary {
+        font-size: 1.15em;
+    }
+
+    .top-bar {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: -20px;
+    }
+}
