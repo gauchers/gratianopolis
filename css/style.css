@@ -101,7 +101,7 @@ h2 {
 .btn-contribuer {
     padding: 12px 25px;
     font-size: 1em;
-    background-color: #11b872; /* vert déjà utilisé */
+    background-color: #537D8D;
     color: white;
 }
 
@@ -304,3 +304,4 @@ details > *:not(summary) {
         margin-bottom: -20px;
     }
 }
+
