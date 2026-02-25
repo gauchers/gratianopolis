@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent participe_parfait déponent"/>
-            <term type="morphologie" ana="comparatif"/>
-            <term type="syntaxe" ana="infinitive ablatif_absolu omission_esse"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_parfait subjonctif_present subjonctif_imparfait subjonctif_plus_que_parfait imperatif_present participe_present participe_parfait deponent"/>
+            <term type="morphologie" ana="comparatif comparatif_adverbe"/>
+            <term type="syntaxe" ana="proposition_infinitive completive_ut_subjonctif completive_ne_subjonctif circonstancielle_consecutive_subjonctif complement_comparatif cum_subjonctif ablatif_absolu omission_esse subjonctif_principale"/>
           </bibl>
         </listBibl>
       </sourceDesc>

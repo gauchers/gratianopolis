@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent participe_parfait déponent"/>
-            <term type="morphologie" ana="comparatif is"/>
-            <term type="syntaxe" ana="relative infinitive ablatif_absolu"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_parfait indicatif_plus_que_parfait subjonctif_imparfait subjonctif_parfait infinitif_present participe_present participe_parfait adjectif_verbal deponent"/>
+            <term type="morphologie" ana="comparatif ipse is ille qui quis"/>
+            <term type="syntaxe" ana="proposition_infinitive proposition_relative_indicatif relatif_liaison completive_ne_subjonctif interrogative_directe interrogative_indirecte circonstancielle_causale_indicatif circonstancielle_finale_subjonctif quo_comparatif_ut ut_indicatif ablatif_absolu adjectif_verbal_epithete adjectif_verbal_attribut"/>
           </bibl>
         </listBibl>
       </sourceDesc>

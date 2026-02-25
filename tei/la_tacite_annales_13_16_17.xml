@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent infinitif_parfait participe_parfait participe_substantivé déponent"/>
-            <term type="morphologie" ana="is"/>
-            <term type="syntaxe" ana="relative infinitive ablatif_absolu omission_esse"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_parfait indicatif_plus_que_parfait subjonctif_imparfait subjonctif_parfait infinitif_futur participe_present participe_parfait participe_substantive deponent"/>
+            <term type="morphologie" ana="is ille idem qui"/>
+            <term type="syntaxe" ana="proposition_infinitive proposition_relative_indicatif proposition_relative_subjonctif discours_indirect circonstancielle_causale_indicatif circonstancielle_finale_subjonctif circonstancielle_consecutive_subjonctif circonstancielle_concessive_subjonctif ut_indicatif ablatif_absolu omission_esse"/>
           </bibl>
         </listBibl>
       </sourceDesc>

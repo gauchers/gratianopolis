@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent participe_parfait déponent"/>
-            <term type="morphologie" ana="comparatif"/>
-            <term type="syntaxe" ana="relative ablatif_absolu omission_esse"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_parfait subjonctif_present subjonctif_imparfait subjonctif_parfait participe_present participe_parfait adjectif_verbal gerondif deponent"/>
+            <term type="morphologie" ana="comparatif comparatif_adverbe ille hic qui quis"/>
+            <term type="syntaxe" ana="proposition_relative_indicatif interrogative_directe interrogative_indirecte circonstancielle_lieu_ubi comparative_indicatif ablatif_absolu omission_esse adjectif_verbal_attribut subjonctif_principale systeme_hypothetique_reel"/>
           </bibl>
         </listBibl>
       </sourceDesc>

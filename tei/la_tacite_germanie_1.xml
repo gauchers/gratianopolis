@@ -40,9 +40,9 @@
             <term type="niveau" n="1"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_parfait participe_parfait déponent"/>
-            
-            <term type="syntaxe" ana="relative ablatif_absolu"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_parfait participe_present participe_parfait deponent"/>
+            <term type="morphologie" ana="ipse"/>
+            <term type="syntaxe" ana="proposition_relative_indicatif circonstancielle_temps_indicatif attribut_cod ablatif_absolu"/>
           </bibl>
         </listBibl>
       </sourceDesc>

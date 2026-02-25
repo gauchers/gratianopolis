@@ -40,9 +40,9 @@
             <term type="niveau" n="2"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent infinitif_parfait infinitif_parfait_passif participe_parfait participe_futur participe_substantivé déponent"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_parfait infinitif_parfait participe_parfait participe_futur participe_substantive deponent"/>
             <term type="morphologie" ana="comparatif is"/>
-            <term type="syntaxe" ana="relative infinitive ablatif_absolu omission_esse"/>
+            <term type="syntaxe" ana="proposition_infinitive proposition_relative_indicatif ablatif_absolu omission_esse"/>
           </bibl>
         </listBibl>
       </sourceDesc>

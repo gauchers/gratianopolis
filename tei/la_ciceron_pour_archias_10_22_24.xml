@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_parfait infinitif_présent infinitif_parfait"/>
-            <term type="morphologie" ana="is"/>
-            <term type="syntaxe" ana="relative"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_parfait indicatif_plus_que_parfait subjonctif_parfait subjonctif_plus_que_parfait"/>
+            <term type="morphologie" ana="ipse is ille hic idem qui"/>
+            <term type="syntaxe" ana="proposition_relative_indicatif proposition_relative_subjonctif relatif_liaison interrogative_directe exclamative circonstancielle_causale_indicatif cum_subjonctif tum_cum passif_personnel_infinitif systeme_hypothetique_reel systeme_hypothetique_irreel_passe"/>
           </bibl>
         </listBibl>
       </sourceDesc>

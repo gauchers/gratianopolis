@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait indicatif_parfait infinitif_présent participe_parfait"/>
-            
-            <term type="syntaxe" ana="ablatif_absolu"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_parfait indicatif_plus_que_parfait subjonctif_present subjonctif_imparfait participe_present participe_parfait"/>
+            <term type="morphologie" ana="ipse qui quis"/>
+            <term type="syntaxe" ana="relatif_liaison completive_ne_subjonctif exclamative circonstancielle_temps_indicatif circonstancielle_lieu_qua circonstancielle_finale_subjonctif cum_indicatif ablatif_absolu"/>
           </bibl>
         </listBibl>
       </sourceDesc>

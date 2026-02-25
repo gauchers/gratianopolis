@@ -40,9 +40,9 @@
             <term type="niveau" n="2"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_parfait infinitif_présent infinitif_parfait participe_parfait déponent"/>
-            <term type="morphologie" ana="is"/>
-            
+            <term type="conjugaison" ana="indicatif_present indicatif_parfait infinitif_present participe_present participe_parfait deponent"/>
+            <term type="morphologie" ana="superlatif is ille"/>
+            <term type="syntaxe" ana="circonstancielle_temps_indicatif passif_personnel_infinitif"/>
           </bibl>
         </listBibl>
       </sourceDesc>

@@ -40,9 +40,9 @@
             <term type="niveau" n="1"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent"/>
-            <term type="morphologie" ana="comparatif"/>
-            <term type="syntaxe" ana="omission_esse"/>
+            <term type="conjugaison" ana="indicatif_present"/>
+            <term type="morphologie" ana="comparatif superlatif"/>
+            <term type="syntaxe" ana="circonstancielle_causale_indicatif circonstancielle_concessive_indicatif circonstancielle_lieu_qua complement_comparatif tournure_esse_datif omission_esse"/>
           </bibl>
         </listBibl>
       </sourceDesc>

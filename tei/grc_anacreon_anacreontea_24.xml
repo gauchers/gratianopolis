@@ -40,7 +40,7 @@
             <term type="niveau" n="2"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent indicatif_imparfait participe_substantivé"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_imparfait indicatif_aoriste participe_present participe_substantive"/>
             
             
           </bibl>

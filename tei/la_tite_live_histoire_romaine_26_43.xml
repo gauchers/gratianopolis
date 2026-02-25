@@ -40,9 +40,9 @@
             <term type="niveau" n="4"/>
             <term type="coupe" subtype="non"/>
 
-            <term type="conjugaison" ana="indicatif_présent infinitif_présent participe_parfait déponent"/>
-            
-            <term type="syntaxe" ana="relative infinitive ablatif_absolu"/>
+            <term type="conjugaison" ana="indicatif_present indicatif_futur indicatif_futur_anterieur subjonctif_present subjonctif_imparfait subjonctif_plus_que_parfait participe_parfait adjectif_verbal gerondif deponent"/>
+            <term type="morphologie" ana="ipse ille hic qui"/>
+            <term type="syntaxe" ana="proposition_infinitive proposition_relative_indicatif proposition_relative_subjonctif relatif_liaison completive_ut_subjonctif circonstancielle_finale_subjonctif cum_subjonctif tum_cum ablatif_absolu adjectif_verbal_epithete systeme_hypothetique_reel"/>
           </bibl>
         </listBibl>
       </sourceDesc>
