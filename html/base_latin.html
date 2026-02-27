@@ -90,8 +90,7 @@
 
 </main>
 
-<script src="../js/filter_latin.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
     import ("https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/alpheios-embedded.js")
       .then(alpheiosEmbed => {
@@ -103,6 +102,15 @@
           } 
         }).then(embedded => {
           embedded.activate();
+          
+          // --- AJOUT POUR LE CHARGEMENT DYNAMIQUE ---
+          // On force Alpheios à réanalyser la page après un court délai
+          // pour s'assurer que vos textes sont chargés.
+          setTimeout(() => {
+            embedded.update();
+          }, 1000); 
+          // ------------------------------------------
+          
         }).catch(e => {
           console.error(`Alpheios embedding failed: ${e}`)
         })
@@ -113,5 +121,6 @@
 </script>
 </body>
 </html>
+
 
 
