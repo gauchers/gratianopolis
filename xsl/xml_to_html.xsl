@@ -272,7 +272,7 @@
                             </p>
                             
                             <p>
-                                <strong>Original (<xsl:value-of select=".//tei:term[@type='mots']/@n"/> mots environ ; 
+                                <strong>Original (<xsl:value-of select=".//tei:term[@type='mots']/@n"/> mots environ 
                                 <xsl:if test="normalize-space(.//tei:name[@role='editeur']) != ''"> ; éd. <xsl:value-of select=".//tei:name[@role='editeur']"/></xsl:if>) :</strong><br/>
                                 <xsl:apply-templates select=".//tei:ab[@type='orig']"/>
                             </p>
