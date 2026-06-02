@@ -308,6 +308,11 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
         </respStmt>
 
         <respStmt>
+          <resp>Edition</resp>
+          <name role="editeur">{xml_safe(row.get("Edition", ""))}</name>
+        </respStmt>
+
+        <respStmt>
           <resp>Traducteur</resp>
           <name role="traducteur">{xml_safe(row.get("Crédit Traduction"))}</name>
         </respStmt>
@@ -347,6 +352,9 @@ with open(CSV_FILE, newline="", encoding="utf-8") as f:
       <langUsage>
         <language ident="{langue_code}"/>
       </langUsage>
+       <abstract ana="utilisation_pedagogique">
+        <p>{xml_safe(row.get("Utilisation pédagogique", ""))}</p>
+      </abstract>
     </profileDesc>
   </teiHeader>
 
