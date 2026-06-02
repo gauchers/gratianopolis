@@ -49,6 +49,7 @@
             <term type="syntaxe" ana="proposition_relative_indicatif"/>
             <term type="genre" ana="roman"/>
             <term type="themes" ana="amitie amour nature"/>
+            <term type="programme" ana="le_monde_mediterraneen masculin_feminin amour_amours l_homme_le_monde_le_destin"/>
           </bibl>
         </listBibl>
       </sourceDesc>
@@ -59,7 +60,7 @@
         <language ident="grc"/>
       </langUsage>
        <abstract ana="utilisation_pedagogique">
-        <p>La description (imparfait de description) ; constructions de phrases simples ; emploi du génitif (complément du nom, génitif absolu, complément du verbe), neutre pluriel; attribut. Renvoyer au site méditerranée.net (lecture oralisée; traduction juxtalinéaire; commentaire; textes complémentaires : travail sur l'âge d'or chez Hésiode et Tipule)</p>
+        <p>La description (imparfait de description) ; constructions de phrases simples ; emploi du génitif (complément du nom, génitif absolu, complément du verbe), neutre pluriel; attribut. Renvoyer au site méditerranée.net (lecture oralisée; traduction juxtalinéaire; commentaire; textes complémentaires : travail sur l'âge d'or chez Hésiode et Tibulle)</p>
       </abstract>
     </profileDesc>
   </teiHeader>
