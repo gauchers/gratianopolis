@@ -320,6 +320,30 @@ p.keywords strong {
 }
 
 /* =====================================================
+   PEDAGOGIE
+   ===================================================== */
+
+p.pedagogy {
+    font-size: 0.82em;
+    color: var(--ink-faded);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cream);
+}
+
+p.pedagogy strong {
+    display: inline;
+    font-style: normal;
+    font-size: 1em;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink-faded);
+    font-weight: 600;
+}
+
+/* =====================================================
    CONTRIBUTION
    ===================================================== */
 
