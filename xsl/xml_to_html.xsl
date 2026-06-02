@@ -272,7 +272,8 @@
                             </p>
                             
                             <p>
-                                <strong>Original (<xsl:value-of select=".//tei:term[@type='mots']/@n"/> mots environ) :</strong><br/>
+                                <strong>Original (<xsl:value-of select=".//tei:term[@type='mots']/@n"/> mots environ ; 
+                                <xsl:if test="normalize-space(.//tei:name[@role='editeur']) != ''"> ; éd. <xsl:value-of select=".//tei:name[@role='editeur']"/></xsl:if>) :</strong><br/>
                                 <xsl:apply-templates select=".//tei:ab[@type='orig']"/>
                             </p>
                             
@@ -297,6 +298,13 @@
                                     <xsl:if test="position() != last()"> ; </xsl:if>
                                 </xsl:for-each>
                             </p>
+
+                            <xsl:if test="normalize-space(.//tei:profileDesc/tei:abstract[@ana='utilisation_pedagogique']/tei:p) != ''">
+                            <p class="pedagogy">
+                            <strong>Utilisation pédagogique : </strong>
+                            <xsl:value-of select=".//tei:profileDesc/tei:abstract[@ana='utilisation_pedagogique']/tei:p"/>
+                            </p>
+                            </xsl:if>
                             
                             <p><strong>Contribution : </strong>
                             <xsl:value-of select=".//tei:name[@role='contributeur']"/></p>
