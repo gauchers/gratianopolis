@@ -122,6 +122,33 @@ const ANA_LABELS = {
         epyllion:              "Épyllion"
     },
 
+    programme: {
+    amour_amours:                                "Amour, amours",
+    comprendre_le_monde:                         "Comprendre le monde",
+    croire_savoir_douter:                        "Croire, savoir, douter",
+    de_la_legende_du_mythe_a_l_histoire:         "De la légende/du mythe à l'histoire",
+    de_la_republique_au_principat:               "De la république au principat",
+    inventer_creer_fabriquer_produire:           "Inventer, créer, fabriquer, produire",
+    justice_des_dieux_justice_des_hommes:        "Justice des dieux, justice des hommes",
+    la_cite_entre_realites_et_utopies:           "La cité entre réalités et utopies",
+    la_grece_dans_son_unite_et_sa_diversite:     "La Grèce dans son unité et sa diversité",
+    l_empire_romain:                             "L'empire romain",
+    le_monde_mediterraneen:                      "Le monde méditerranéen",
+    lecons_de_sagesse_antique:                   "Leçons de sagesse antique",
+    les_dieux_dans_la_cite:                      "Les dieux dans la cité",
+    l_homme_et_l_animal:                         "L'Homme et l'animal",
+    l_homme_et_le_divin:                         "L'Homme et le divin",
+    l_homme_le_monde_le_destin:                  "L'homme, le monde, le destin",
+    masculin_feminin:                            "Masculin, Féminin",
+    mediterranee_conflit_influences_et_echanges: "Méditerranée : conflit, influences et échanges",
+    mediterranee_presence_des_mondes_antiques:   "Méditerranée : présence des mondes antiques",
+    mediterranee_voyager_explorer_decouvrir:     "Méditerranée : voyager, explorer, découvrir",
+    soi_meme_et_l_autre:                         "Soi-même et l'autre",
+    vie_familiale_sociale_et_intellectuelle:      "Vie familiale, sociale et intellectuelle",
+    vie_privee_et_vie_publique:                  "Vie privée et vie publique",
+    vivre_dans_la_cite:                          "Vivre dans la cité"
+},
+
     themes: {
         amitie:      "Amitié",
         amour:       "Amour et érotisme",
