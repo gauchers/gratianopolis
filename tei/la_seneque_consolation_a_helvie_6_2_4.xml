@@ -11,6 +11,11 @@
         </respStmt>
 
         <respStmt>
+          <resp>Edition</resp>
+          <name role="editeur"></name>
+        </respStmt>
+
+        <respStmt>
           <resp>Traducteur</resp>
           <name role="traducteur">Sarah Orsini</name>
         </respStmt>
@@ -54,6 +59,9 @@
       <langUsage>
         <language ident="la"/>
       </langUsage>
+       <abstract ana="utilisation_pedagogique">
+        <p></p>
+      </abstract>
     </profileDesc>
   </teiHeader>
 
